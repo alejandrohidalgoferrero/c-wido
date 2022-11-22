@@ -1,0 +1,276 @@
+body {
+	background: rgb(237, 237, 236); font: 16px/20px "Helvetica Neue", Helvetica, sans-serif; margin: 0px; padding: 0px; font-size-adjust: none; font-stretch: normal;
+}
+section {
+	display: block;
+}
+header {
+	display: block;
+}
+footer {
+	display: block;
+}
+#wrapper {
+	background: url("../images/shade.jpg") repeat-x bottom rgb(255, 255, 255); margin: 0px auto; border-radius: 10px; padding-bottom: 76px; border-top-color: rgb(255, 255, 255); border-top-width: 1px; border-top-style: solid; max-width: 600px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+}
+h1 {
+	padding-top: 10px;
+}
+h2 {
+	font-size: 100%; font-style: italic;
+}
+header {
+	margin: 20px;
+}
+article > * {
+	margin: 20px;
+}
+footer > * {
+	margin: 20px;
+}
+footer > * {
+	margin: 20px; color: rgb(153, 153, 153);
+}
+#status {
+	background: rgb(204, 204, 204); padding: 5px; color: rgb(255, 255, 255);
+}
+.fail#status {
+	background: rgb(204, 0, 0);
+}
+.success#status {
+	background: rgb(0, 204, 0);
+}
+.offline#status {
+	background: rgb(204, 0, 0);
+}
+.online#status {
+	background: rgb(0, 204, 0);
+}
+[contenteditable]:not(:focus):hover {
+	outline: rgb(204, 204, 204) dotted 1px;
+}
+abbr {
+	border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;
+}
+abbr[title] {
+	border-bottom-color: rgb(204, 204, 204); border-bottom-width: 1px; border-bottom-style: dotted;
+}
+li {
+	margin-bottom: 10px;
+}
+#promo {
+	height: 160px; font-size: 90%; text-decoration: none; cursor: pointer;
+}
+#promo:hover {
+	border-color: rgb(0, 0, 255);
+}
+#promo img {
+	width: 100%; display: block;
+}
+#ih5 {
+	background: url("../images/ih5.jpg") no-repeat left rgb(68, 44, 13); padding: 1px 20px 1px 260px; border: 5px solid rgb(144, 66, 0); border-image: none; color: rgb(247, 252, 228); font-size: 90%; text-decoration: none; display: block; cursor: pointer;
+}
+#ih5:hover {
+	border-color: rgb(207, 109, 59);
+}
+#ffad section {
+	padding: 20px;
+}
+#ffad p {
+	margin: 10px 10px 10px 100px;
+}
+#ffad img {
+	margin: 14px 14px 0px; border: 0px currentColor; border-image: none; float: left; display: block;
+}
+#ffad .definition {
+	font-family: Georgia,Palatino,Palatino Linotype,Times,Times New Roman,serif; font-style: italic;
+}
+#ffad .url {
+	text-decoration: underline;
+}
+button {
+	padding: 3px; font-size: 16px; margin-left: 5px;
+}
+input {
+	padding: 3px; font-size: 16px; margin-left: 5px;
+}
+#view-source {
+	display: none;
+}
+body.view-source {
+	background: rgb(255, 255, 255); margin: 0px; padding: 20px;
+}
+body.view-source > * {
+	display: none;
+}
+body.view-source #view-source {
+	margin: 0px; display: block !important;
+}
+#demos {
+	width: 560px; border-collapse: collapse;
+}
+#demos .demo {
+	padding: 5px;
+}
+#demos a {
+	color: rgb(0, 0, 187); font-size: 14px; text-decoration: none;
+}
+#demos a:hover {
+	text-decoration: underline;
+}
+#demos tbody tr {
+	border-top-color: rgb(220, 220, 220); border-top-width: 1px; border-top-style: solid;
+}
+#demos .demo p {
+	margin-top: 0px; margin-bottom: 5px;
+}
+#demos .support {
+	width: 126px;
+}
+.support span {
+	width: 16px; height: 16px; text-indent: -9999px; overflow: hidden; margin-right: 5px; float: left; display: block; cursor: pointer; background-image: url("../images/browsers.gif");
+}
+.support span.selected {
+	outline: rgb(117, 120, 76) dashed 1px;
+}
+.support span.safari {
+	background-position: 0px 0px;
+}
+.support span.chrome {
+	background-position: 16px 0px;
+}
+.support span.firefox {
+	background-position: 32px 0px;
+}
+.support span.ie {
+	background-position: 48px 0px;
+}
+.support span.opera {
+	background-position: 64px 0px;
+}
+.support span.nightly {
+	opacity: 0.5;
+}
+.support span.none {
+	opacity: 0.1;
+}
+#demos .tags {
+	width: 140px;
+}
+.tags span {
+	background: rgb(255, 255, 198); padding: 2px 5px; border-radius: 10px; border: 1px solid rgb(215, 217, 153); border-image: none; color: rgb(110, 114, 78); font-size: 11px; cursor: pointer; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+}
+.tags span:hover {
+	background: rgb(255, 255, 119); border: 1px solid rgb(117, 120, 76); border-image: none; color: rgb(51, 53, 33);
+}
+.tags span.selected {
+	background: rgb(255, 255, 119); border: 1px solid rgb(117, 120, 76); border-image: none; color: rgb(51, 53, 33);
+}
+#tags span {
+	margin-right: 2px;
+}
+#tags {
+	font-size: 14px;
+}
+#html5badge {
+	border: 0px currentColor; border-image: none; margin-left: -30px;
+}
+#html5badge img {
+	border: 0px currentColor; border-image: none;
+}
+.support span.yourbrowser {
+	background: none; width: 16px; height: 16px;
+}
+.support span.supported.yourbrowser {
+	background: url("../images/yourbrowser.gif") no-repeat left top;
+}
+.support span.not-supported.yourbrowser {
+	background: url("../images/yourbrowser.gif") no-repeat right top;
+}
+pre {
+	font-size: 14px;
+}
+.str {
+	color: rgb(0, 136, 0);
+}
+.kwd {
+	color: rgb(0, 0, 136);
+}
+.com {
+	color: rgb(136, 0, 0);
+}
+.typ {
+	color: rgb(102, 0, 102);
+}
+.lit {
+	color: rgb(0, 102, 102);
+}
+.pun {
+	color: rgb(102, 102, 0);
+}
+.pln {
+	color: rgb(0, 0, 0);
+}
+.tag {
+	color: rgb(0, 0, 136);
+}
+.atn {
+	color: rgb(102, 0, 102);
+}
+.atv {
+	color: rgb(0, 136, 0);
+}
+.dec {
+	color: rgb(102, 0, 102);
+}
+#forkme {
+	display: none;
+}
+@media all and (min-width:768px)
+{
+body {
+	margin-top: 40px;
+}
+}
+#carbonads {
+	padding: 1em; border: 1px solid hsl(0, 0%, 91%); border-image: none; text-align: center; line-height: 1.5; overflow: hidden; font-family: Verdana, "Helvetica Neue", Helvetica, sans-serif; font-size: 11px; margin-top: -2px; margin-left: 620px; display: block; position: fixed; max-width: 130px; background-color: rgb(251, 251, 251);
+}
+#carbonads a {
+	color: inherit; text-decoration: none;
+}
+#carbonads a:hover {
+	color: inherit;
+}
+#carbonads span {
+	overflow: hidden; display: block;
+}
+.carbon-img {
+	margin: 0px auto 1em; display: block;
+}
+.carbon-text {
+	margin-bottom: 1em; display: block;
+}
+.carbon-poweredby {
+	color: rgb(136, 136, 136) !important; text-transform: uppercase; letter-spacing: 1px; font-size: 8px; display: block;
+}
+@media only screen and (max-width:759px) and (min-width:320px)
+{
+#carbonads {
+	margin: 3em auto 1em; float: none; position: relative; max-width: 330px;
+}
+#carbonads span {
+	position: relative;
+}
+#carbonads > span {
+	max-width: none;
+}
+.carbon-img {
+	margin: 0px 1em 0px 0px; float: left;
+}
+.carbon-text {
+	text-align: left; margin-bottom: 0px; float: left; max-width: calc(100% - 130px - 1em);
+}
+.carbon-poweredby {
+	right: 0px; bottom: 0px; display: block; position: absolute;
+}
+}

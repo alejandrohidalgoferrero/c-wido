@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<html>
+
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+     <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+     <script src="js/plotly.min.js"></script>
+
+     <title>HxH INY 1</title>
+          
+</head>
+
+<body style="background-color: #D8F5CA" class="text-muted">
+
+    <!-- Nav desde aqui -->
+         
+     <title>HxH inyectoras</title>
+
+    
+
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+     <link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+     <title>nav</title>
+          
+</head>
+
+<body class="bg-warning text-muted">
+
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <a class="navbar-brand active" href="http://10.217.144.35/C-WIDO/"> C-WIDO</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> <div><a class="navbar-nav justify-content-end" ><img src="imagenes/Elefante.png" width=50% height=50%></a></div><div align="center" mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1  border rounded border-dark><label>Usuario: Alejandro Hidalgo Ferrero</label></div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav mr-auto mt-lg-0"><li><a class="nav-link " href="http://10.217.144.35/C-WIDO/mantenimiento.php">MANTENIMIENTO</a></li><li><a class="nav-link " href="http://10.217.144.35/C-WIDO/app elementos elevacion.php">App elementos elevación</a></li><li><a class="nav-link " href="http://10.217.144.35/C-WIDO/factoría4.0.php">Factoría 4.0</a></li><li><a class="nav-link " href="http://10.217.144.35/C-WIDO/cambiomolde.php">Cambio de molde</a></li><li><a class="nav-link " href="http://10.217.144.35/C-WIDO/fos.php">FOS</a></li><li><a class="nav-link active" href="http://10.217.144.35/C-WIDO/HxH INY.php">HxH INY</a></li><li><a class="nav-link " href="http://10.217.144.35/C-WIDO/hornos.php">HORNOS</a></li>   
+            </ul>  
+        </div><div border rounded><a class="navbar-nav justify-content-end" href="http://10.217.144.35/C-WIDO/ajustes.php"><img src="imagenes/ajustes.png"></a></div>
+            
+    </nav>
+
+
+
+</body>
+
+
+    <!-- Nav hasta aqui -->
+
+<h1 align="center">HxH inyectora 1</h1>
+<br>
+<h3 align="center">28/05/2021 </h3>
+
+<form action="HxH INY cargar fecha.php" method="POST"> 
+    <div class="container" style="background-color:#ECECEC">
+        <div class="row-md-10 offset-md-1  align-items-center mr-auto ml-auto mt-1 mb-3 pt-2 pb-2 pl-2 pr-2 border border-dark" style="width: 100%" >            
+
+                                                                                                
+
+              <!-- PROBLEMAS 2 -->
+
+                                                                                                  
+            <!-- PROBLEMA 3 -->
+
+                                                                                            
+            
+
+                <h2 align="center">Turno de mañana.</h2>
+                <div id="myDiv">
+
+                </div>
+                
+                <script type="text/javascript" >
+                function crearCadenaLineal(json){
+                    var parsed = JSON.parse(json);
+                    var arr =[];
+                    for(var x in parsed){
+                        arr.push(parsed[x]);
+                    }
+                    return arr;
+                }
+
+                </script>
+
+                <script type="text/javascript"  >
+
+                datosX=crearCadenaLineal('["6h-7h","7h-8h","8h-9h","9h-10h","10h-11h","11h-12h","12h-13h","13h-14h"]')
+                var trace1 = {
+                    x: datosX,
+                    y: [38, 76, 114, 152, 190, 228, 266, 304],
+                    name: '100% RO',
+                    mode: 'lines',
+                };  
+                var trace2 = {
+                    x:datosX,
+                    y: [30, 60, 90, 120, 150, 180, 210, 240],
+                    name: '78% RO',
+                    mode: 'lines',
+                };
+                var trace3 = {
+                    x: datosX,
+                    y: [30, 30, 30, 30, 30, 30, 30, 30],
+                    name: 'OBJ HORA',
+                    mode: 'lines',
+                
+                };
+                var trace4 = {
+                    x: datosX,
+                    y: [34, 0, 0, 7, 24, 18, 34, 31],
+                    marker:{
+                    color: ['rgba(0,255,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)']
+                    },
+                    
+                    name: 'PIEZAS',
+                    type: 'bar'
+                    
+                };
+                var trace5 = {
+                    x: datosX,
+                    y: [34, 34, 34, 41, 65, 83, 117, 148],
+                    name: 'Acumulado',
+                    mode: 'lines',
+                
+                };
+                var trace6 = {
+                    x: datosX,
+                    y: [400, 400, 400, 400, 400, 400, 400, 400],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 1',
+                    text: ['', 'TIPO: PISTÓN<br>Sintoma: PARADA MÁQUINA<br>Causa: FUGA AGUA PISTON QUE  ORIGINA ROTURA DEL MISMO Y GRAN FUGA AGUA <br>Resultado: PARAR DE INMEDIATO INY E INFORMAR JU,CAMBIO PISTON Y MANTENIMIENTO 5S ZONA<br>Tiempo: 60 min', 'TIPO: PISTÓN<br>Sintoma: CONTINUACION HORA ANTERIOR<br>Causa: FUGA AGUA PISTON<br>Resultado: LIMPIEZA ZONA Y PISTON CAMBIO<br>Tiempo: 60 min', 'TIPO: PISTÓN<br>Sintoma: PARADA HORA ANTERIOR<br>Causa: CONTINUACION<br>Resultado: REVISION PISTON,PROCEDIMIENTO STANDAR DE ENGRASE,VERIFICACION LIMPIEZA AGUA ZONA PISTON ,ARRANCAR<br>Tiempo: 0:00 min', 'TIPO: PISTÓN<br>Sintoma: PARADA MÁQUINA<br>Causa: DEFECTO ENGRASE PISTON,PISTOLA DE ENGRASE DESATORNILLADA<br>Resultado: APRETAR Y COLOCAR GUIA DE ENGRASE,REARMAR,ARRANCAR<br>Tiempo: 0:00 min', 'TIPO: CIERRE MOLDE<br>Sintoma: PARADA MÁQUINA<br>Causa: DEFECTO CIERRE INYECTORA,NO LLEGA A BRIDAR MOLDE (CILINDRO DE AYUDA CIERRE)<br>Resultado: SE HACE CERO EN INYECTORA PARA CALIBRAR ,REARMAR,ARRANCAR<br>Tiempo: 0:00 min', 'TIPO: LINGOTE<br>Sintoma: PQARADA MÁQUINA <br>Causa: LINGOTE POR DEFECTO DE CIERRE<br>Resultado: RETIRAR LIMPIEZA MOLDE,ARRANCAR<br>Tiempo: 7 min', 'TIPO: AL PEGADO<br>Sintoma: PARADA MÁQUINA CALIDAD<br>Causa: ARRASTRES EN CAVIDADES CILINDROS<br>Resultado: MATRICERIA INTERVIENE<br>Tiempo: 15 min'],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)']
+                    },
+                };
+
+                var trace7 = {
+                    x: datosX,
+                    y: [375, 375, 375, 375, 375, 375, 375, 375],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 2',
+                    text: ['', 'TIPO: OTRAS<br>Sintoma: COMUNICADO SALA 3D<br>Causa: SEGUIMIENTO PIN 3041 (-3,8) OK , PIEZA 210528519130B<br>Resultado: APUNTAR EN HXH<br>Tiempo: 0 min', '', 'TIPO: OTRAS<br>Sintoma: ARRANCADA<br>Causa: ARRANCADA DE NUEVO PRODUCCION INY 1<br>Resultado: ARRANCAR<br>Tiempo: 0 min', '', 'TIPO: OTRAS<br>Sintoma: <br>Causa: <br>Resultado: <br>Tiempo: 0 min', 'TIPO: OTRAS<br>Sintoma: COMUNICADO SALA 3D<br>Causa: SEGUIMIENTO PIN 3041 ( -4)OK PIEZA 210528523030B<br>Resultado: APUNTAR EN HXH<br>Tiempo: 0 min', ''],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,255,255,1)']
+                    },
+                };
+                var trace8 = {
+                    x: datosX,
+                    y: [350, 350, 350, 350, 350, 350, 350, 350],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 3',
+                    text: ['', '', '', 'TIPO: SIERRA SIIF<br>Sintoma: PARADA MÁQUINA<br>Causa: COLISION PIEZA CON SIERRA SIIF <br>Resultado: RETIRAR PIEZA COLISION,VERIFICAR ESTADO SIERRA (OK),REARMAR,ARRANCAR<br>Tiempo: 15 min', '', '', '', ''],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', '', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)']
+                    },
+                };
+                var data = [trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8];
+                var layout = {
+                    title: {
+                    font: {
+                        family: 'Arial, monospace',
+                        size: 24
+                    },
+                    xref: 'paper',
+                    x: 0.05,
+                    },
+                    xaxis: {
+                    title: {
+                        text: 'Hora',
+                        font: {
+                        family: 'Arial, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                        }
+                    },
+                    },
+                    yaxis: {
+                    title: {
+                        text: 'Nº de piezas',
+                        font: {
+                        family: 'Arial, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                        }
+                    }
+                    }
+                };
+
+                Plotly.newPlot('myDiv', data, layout);
+                </script>
+        </div>
+
+        </form>
+        <div class="row">
+        <div class="col">
+
+        <form action="hxh_inyectoras_guardarpiezas.php" method="POST"> 
+
+        <font size="2" face="Arial">  
+
+        <table style="text-align: center;" align="center" border="1"class="table table-striped table-sm ">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">HORA </td>
+                  <th scope="col">6-7<br></td>
+                  <th scope="col">7-8<br></td>
+                  <th scope="col">8-9<br></td>
+                  <th scope="col">9-10<br></td>
+                  <th scope="col">10-11<br></td>
+                  <th scope="col">11-12<br></td>
+                  <th scope="col">12-13<br></td>
+                  <th scope="col">13-14<br></td>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tr>
+    </thead>
+    <tbody>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                BUENAS
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_1" name="piezas_buenas_1" value="34">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_2" name="piezas_buenas_2" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_3" name="piezas_buenas_3" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_4" name="piezas_buenas_4" value="7">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_5" name="piezas_buenas_5" value="24">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_6" name="piezas_buenas_6" value="18">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_7" name="piezas_buenas_7" value="34">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_8" name="piezas_buenas_8" value="31">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                CHATARRA
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_1" name="piezas_malas_1" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_2" name="piezas_malas_2" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_3" name="piezas_malas_3" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_4" name="piezas_malas_4" value="3">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_5" name="piezas_malas_5" value="2">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_6" name="piezas_malas_6" value="2">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_7" name="piezas_malas_7" value="1">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_8" name="piezas_malas_8" value="1">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                MOLDE
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_1" name="molde_1" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_2" name="molde_2" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_3" name="molde_3" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_4" name="molde_4" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_5" name="molde_5" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_6" name="molde_6" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_7" name="molde_7" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_8" name="molde_8" value="">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                COMENTARIOS
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_1" name="comentarios_1" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_2" name="comentarios_2" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_3" name="comentarios_3" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_4" name="comentarios_4" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_5" name="comentarios_5" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_6" name="comentarios_6" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_7" name="comentarios_7" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_8" name="comentarios_8" value="">        
+            </td>
+                    </tr>
+    
+    </tbody>
+</table>
+
+</font>
+</div>
+            <input style="vertical-align: middle;" type="submit" value="GUARDAR" class=" btn btn-primary btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            <input type="hidden" id="fecha" name="fecha" value="2021-05-28"  >
+            <input type="hidden" id="inyectora" name="inyectora" value="Inyectora 1"  >
+            <input type="hidden" id="tabla" name="tabla" value="hxh_inyectora_registro_1"  >
+            <input type="hidden" id="operario" name="operario" value="Alejandro Hidalgo Ferrero"  >
+            <input type="hidden" id="uet" name="uet" value="MC"  >
+            <input type="hidden" id="ju" name="ju" value="Virginia Ferrari"  >
+            <input type="hidden" id="turno" name="turno" value="MAÑANA" >
+            <input type="hidden" id="iny" name="iny" value="1"  >
+            <input type="hidden" id="id" name="id" value="9"  >
+
+</div>
+</form>
+
+<br>
+<div class="row">
+    <form action="hxh_inyectoras_añadirparada.php" method="POST"> 
+            <input style="vertical-align: middle;" type="submit" value="+ PARADA" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            <input type="hidden" id="turno" name="turno" value="MAÑANA"  >
+            <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#tabla_mañana">Desplegar</button>
+
+    </form>
+</div>
+
+
+<div id="tabla_mañana" class="collapse">
+
+<div class="row">
+
+<font size="2" face="Arial">  
+
+<table style="text-align: center;" align="center" border="1"class="table table-striped table-sm ">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col"> </td>
+          <th scope="col">HORA<br></td>
+          <th scope="col">SINTOMA<br></td>
+          <th scope="col">CAUSA<br></td>
+          <th scope="col">RESULTADO<br></td>
+          <th scope="col">TIPO<br></td>
+          <th scope="col">TIEMPO<br></td>
+          <tr>
+
+             
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="2"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="2"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">7h-8h</td>                <td style="vertical-align: middle;">PARADA MÁQUINA</td>                <td style="vertical-align: middle;">FUGA AGUA PISTON QUE  ORIGINA ROTURA DEL MISMO Y GRAN FUGA AGUA </td>                <td style="vertical-align: middle;">PARAR DE INMEDIATO INY E INFORMAR JU,CAMBIO PISTON Y MANTENIMIENTO 5S ZONA</td>                <td style="vertical-align: middle;">PISTÓN</td>                <td style="vertical-align: middle;">60</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4850"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4850"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">7h-8h</td>                <td style="vertical-align: middle;">COMUNICADO SALA 3D</td>                <td style="vertical-align: middle;">SEGUIMIENTO PIN 3041 (-3,8) OK , PIEZA 210528519130B</td>                <td style="vertical-align: middle;">APUNTAR EN HXH</td>                <td style="vertical-align: middle;">OTRAS</td>                <td style="vertical-align: middle;">0</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="3"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="3"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">8h-9h</td>                <td style="vertical-align: middle;">CONTINUACION HORA ANTERIOR</td>                <td style="vertical-align: middle;">FUGA AGUA PISTON</td>                <td style="vertical-align: middle;">LIMPIEZA ZONA Y PISTON CAMBIO</td>                <td style="vertical-align: middle;">PISTÓN</td>                <td style="vertical-align: middle;">60</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">9h-10h</td>                <td style="vertical-align: middle;">PARADA HORA ANTERIOR</td>                <td style="vertical-align: middle;">CONTINUACION</td>                <td style="vertical-align: middle;">REVISION PISTON,PROCEDIMIENTO STANDAR DE ENGRASE,VERIFICACION LIMPIEZA AGUA ZONA PISTON ,ARRANCAR</td>                <td style="vertical-align: middle;">PISTÓN</td>                <td style="vertical-align: middle;">0:00</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4852"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4852"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">9h-10h</td>                <td style="vertical-align: middle;">ARRANCADA</td>                <td style="vertical-align: middle;">ARRANCADA DE NUEVO PRODUCCION INY 1</td>                <td style="vertical-align: middle;">ARRANCAR</td>                <td style="vertical-align: middle;">OTRAS</td>                <td style="vertical-align: middle;">0</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="9700"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="9700"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">9h-10h</td>                <td style="vertical-align: middle;">PARADA MÁQUINA</td>                <td style="vertical-align: middle;">COLISION PIEZA CON SIERRA SIIF </td>                <td style="vertical-align: middle;">RETIRAR PIEZA COLISION,VERIFICAR ESTADO SIERRA (OK),REARMAR,ARRANCAR</td>                <td style="vertical-align: middle;">SIERRA SIIF</td>                <td style="vertical-align: middle;">15</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="5"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="5"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">10h-11h</td>                <td style="vertical-align: middle;">PARADA MÁQUINA</td>                <td style="vertical-align: middle;">DEFECTO ENGRASE PISTON,PISTOLA DE ENGRASE DESATORNILLADA</td>                <td style="vertical-align: middle;">APRETAR Y COLOCAR GUIA DE ENGRASE,REARMAR,ARRANCAR</td>                <td style="vertical-align: middle;">PISTÓN</td>                <td style="vertical-align: middle;">0:00</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="6"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="6"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">11h-12h</td>                <td style="vertical-align: middle;">PARADA MÁQUINA</td>                <td style="vertical-align: middle;">DEFECTO CIERRE INYECTORA,NO LLEGA A BRIDAR MOLDE (CILINDRO DE AYUDA CIERRE)</td>                <td style="vertical-align: middle;">SE HACE CERO EN INYECTORA PARA CALIBRAR ,REARMAR,ARRANCAR</td>                <td style="vertical-align: middle;">CIERRE MOLDE</td>                <td style="vertical-align: middle;">0:00</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4854"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4854"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">11h-12h</td>                <td style="vertical-align: middle;"></td>                <td style="vertical-align: middle;"></td>                <td style="vertical-align: middle;"></td>                <td style="vertical-align: middle;">OTRAS</td>                <td style="vertical-align: middle;">0</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="7"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="7"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">12h-13h</td>                <td style="vertical-align: middle;">PQARADA MÁQUINA </td>                <td style="vertical-align: middle;">LINGOTE POR DEFECTO DE CIERRE</td>                <td style="vertical-align: middle;">RETIRAR LIMPIEZA MOLDE,ARRANCAR</td>                <td style="vertical-align: middle;">LINGOTE</td>                <td style="vertical-align: middle;">7</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4855"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4855"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">12h-13h</td>                <td style="vertical-align: middle;">COMUNICADO SALA 3D</td>                <td style="vertical-align: middle;">SEGUIMIENTO PIN 3041 ( -4)OK PIEZA 210528523030B</td>                <td style="vertical-align: middle;">APUNTAR EN HXH</td>                <td style="vertical-align: middle;">OTRAS</td>                <td style="vertical-align: middle;">0</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="8"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="8"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">13h-14h</td>                <td style="vertical-align: middle;">PARADA MÁQUINA CALIDAD</td>                <td style="vertical-align: middle;">ARRASTRES EN CAVIDADES CILINDROS</td>                <td style="vertical-align: middle;">MATRICERIA INTERVIENE</td>                <td style="vertical-align: middle;">AL PEGADO</td>                <td style="vertical-align: middle;">15</td>
+                </tr>
+                
+                  
+</tbody>
+</table>
+
+</font>
+
+
+</div>
+
+</div>
+
+<br>
+<br>
+
+<br>
+
+<!-- TURNO DE TARDE -->
+<div class="row-md-10 offset-md-1  align-items-center mr-auto ml-auto mt-1 mb-3 pt-2 pb-2 pl-2 pr-2 border border-dark" style="width: 100%" >            
+
+                                                                                    
+
+              <!-- PROBLEMAS 2 -->
+
+                                                                                                  
+            <!-- PROBLEMA 3 -->
+
+                                                                                                        
+
+            <h2 align="center">Turno de tarde</h2>
+
+            
+                <div id="myDiv1">
+
+                </div>
+                
+                <script type="text/javascript" >
+                function crearCadenaLineal(json){
+                    var parsed = JSON.parse(json);
+                    var arr =[];
+                    for(var x in parsed){
+                        arr.push(parsed[x]);
+                    }
+                    return arr;
+                }
+
+                </script>
+
+                <script type="text/javascript"  >
+
+                datosX=crearCadenaLineal('["14h-15h","15h-16h","16h-17h","17h-18h","18h-19h","19h-20h","20h-21h","21h-22h"]')
+                var trace11 = {
+                    x: datosX,
+                    y: [38, 76, 114, 152, 190, 228, 266, 304],
+                    name: '100% RO',
+                    mode: 'lines',
+                };  
+                var trace12 = {
+                    x:datosX,
+                    y: [30, 60, 90, 120, 150, 180, 210, 240],
+                    name: '78% RO',
+                    mode: 'lines',
+                };
+                var trace13 = {
+                    x: datosX,
+                    y: [30, 30, 30, 30, 30, 30, 30, 30],
+                    name: 'OBJ HORA',
+                    mode: 'lines',
+                
+                };
+                var trace14 = {
+                    x: datosX,
+                    y: [28, 38, 5, 6, 36, 38, 35, 35],
+                    marker:{
+                    color: ['rgba(255,0,0,1)', 'rgba(0,255,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)']
+                    },
+                    
+                    name: 'PIEZAS',
+                    type: 'bar'
+                    
+                };
+                var trace15 = {
+                    x: datosX,
+                    y: [28, 66, 71, 77, 113, 151, 186, 221],
+                    name: 'Acumulado',
+                    mode: 'lines',
+                
+                };
+                var trace16 = {
+                    x: datosX,
+                    y: [400, 400, 400, 400, 400, 400, 400, 400],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 1',
+                    text: ['TIPO: SATURACION SIIF<br>Sintoma: Saturacion de siif <br>Causa: cambio de turno <br>Resultado: esperar a desaturar y arrancar <br>Tiempo: 12 min', '', 'TIPO: PMA LIMPIEZA<br>Sintoma: Parada programada <br>Causa: pma molde y iny <br>Resultado: realizar<br>Tiempo: 45 min', 'TIPO: LINGOTE<br>Sintoma: lingote <br>Causa: mal cierre del molde <br>Resultado: retirar lingote y revisar y limpiar molde <br>Tiempo: 15 min', '', '', 'TIPO: CAMBIO CARRO<br>Sintoma: no hay carros de scrab vacio <br>Causa: no llega agv con carro <br>Resultado: buscar carro <br>Tiempo: 7 min', 'TIPO: CAMBIO CARRO<br>Sintoma: no hay carros de scrab vacio <br>Causa: no llega agv con carro <br>Resultado: buscar carro <br>Tiempo: 7 min'],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,0,0,0.9)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)']
+                    },
+                };
+
+                var trace17 = {
+                    x: datosX,
+                    y: [375, 375, 375, 375, 375, 375, 375, 375],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 2',
+                    text: ['', '', '', '', '', '', '', ''],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)']
+                    },
+                };
+                var trace18 = {
+                    x: datosX,
+                    y: [350, 350, 350, 350, 350, 350, 350, 350],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 3',
+                    text: ['', '', '', '', '', '', '', ''],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)']
+                    },
+                };
+                var data = [trace11, trace12, trace13, trace14, trace15, trace16, trace17, trace18];
+                var layout = {
+                    title: {
+                    font: {
+                        family: 'Arial, monospace',
+                        size: 24
+                    },
+                    xref: 'paper',
+                    x: 0.05,
+                    },
+                    xaxis: {
+                    title: {
+                        text: 'Hora',
+                        font: {
+                        family: 'Arial, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                        }
+                    },
+                    },
+                    yaxis: {
+                    title: {
+                        text: 'Nº de piezas',
+                        font: {
+                        family: 'Arial, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                        }
+                    }
+                    }
+                };
+
+                Plotly.newPlot('myDiv1', data, layout);
+                </script>
+        </div>
+
+        </form>
+        <div class="row">
+        <div class="col">
+
+        <form action="hxh_inyectoras_guardarpiezas.php" method="POST"> 
+        <input type="hidden" id="iny" name="iny" value="1"  >
+
+        <font size="2" face="Arial">  
+
+        <table style="text-align: center;" align="center" border="1"class="table table-striped table-sm ">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">HORA </td>
+                  <th scope="col">14-15<br></td>
+                  <th scope="col">15-16<br></td>
+                  <th scope="col">16-17<br></td>
+                  <th scope="col">17-18<br></td>
+                  <th scope="col">18-19<br></td>
+                  <th scope="col">19-20<br></td>
+                  <th scope="col">20-21<br></td>
+                  <th scope="col">21-22<br></td>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tr>
+    </thead>
+    <tbody>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                OK
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_9" name="piezas_buenas_9"value="28">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_10" name="piezas_buenas_10"value="38">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_11" name="piezas_buenas_11"value="5">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_12" name="piezas_buenas_12"value="6">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_13" name="piezas_buenas_13"value="36">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_14" name="piezas_buenas_14"value="38">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_15" name="piezas_buenas_15"value="35">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_16" name="piezas_buenas_16"value="35">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                NOK
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_9" name="piezas_malas_9" value="1">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_10" name="piezas_malas_10" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_11" name="piezas_malas_11" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_12" name="piezas_malas_12" value="4">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_13" name="piezas_malas_13" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_14" name="piezas_malas_14" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_15" name="piezas_malas_15" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_16" name="piezas_malas_16" value="0">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                MOLDE
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_9" name="molde_9" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_10" name="molde_10" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_11" name="molde_11" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_12" name="molde_12" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_13" name="molde_13" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_14" name="molde_14" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_15" name="molde_15" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_16" name="molde_16" value="">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                COMENTARIOS
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_9" name="comentarios_9" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_10" name="comentarios_10" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_11" name="comentarios_11" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_12" name="comentarios_12" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_13" name="comentarios_13" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_14" name="comentarios_14" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_15" name="comentarios_15" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_16" name="comentarios_16" value="">        
+            </td>
+                    </tr>
+    
+    </tbody>
+</table>
+
+</font>
+</div>
+            <input style="vertical-align: middle;" type="submit" value="GUARDAR" class=" btn btn-primary btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            <input type="hidden" id="fecha" name="fecha" value="2021-05-28"  >
+            <input type="hidden" id="inyectora" name="inyectora" value="Inyectora 1"  >
+            <input type="hidden" id="tabla" name="tabla" value="hxh_inyectora_registro_1"  >
+            <input type="hidden" id="operario" name="operario" value="Alejandro Hidalgo Ferrero"  >
+            <input type="hidden" id="uet" name="uet" value="MC"  >
+            <input type="hidden" id="ju" name="ju" value="Virginia Ferrari"  >
+            <input type="hidden" id="turno" name="turno" value="TARDE" >
+</div>
+</form>
+
+<br>
+<div class="row">
+    <form action="hxh_inyectoras_añadirparada.php" method="POST"> 
+            <input style="vertical-align: middle;" type="submit" value="+ PARADA" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            <input type="hidden" id="turno" name="turno" value="TARDE"  >
+            <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#tabla_tarde">Desplegar</button>
+
+    </form>
+</div>
+
+
+<div id="tabla_tarde" class="collapse">
+
+<div class="row">
+
+<font size="2" face="Arial">  
+
+<table style="text-align: center;" align="center" border="1"class="table table-striped table-sm ">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col"> </td>
+          <th scope="col">HORA<br></td>
+          <th scope="col">SINTOMA<br></td>
+          <th scope="col">CAUSA<br></td>
+          <th scope="col">RESULTADO<br></td>
+          <th scope="col">TIPO<br></td>
+          <th scope="col">TIEMPO<br></td>
+          <tr>
+
+             
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="11"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="11"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">16h-17h</td>                <td style="vertical-align: middle;">Parada programada </td>                <td style="vertical-align: middle;">pma molde y iny </td>                <td style="vertical-align: middle;">realizar</td>                <td style="vertical-align: middle;">PMA LIMPIEZA</td>                <td style="vertical-align: middle;">45</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="12"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="12"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">17h-18h</td>                <td style="vertical-align: middle;">lingote </td>                <td style="vertical-align: middle;">mal cierre del molde </td>                <td style="vertical-align: middle;">retirar lingote y revisar y limpiar molde </td>                <td style="vertical-align: middle;">LINGOTE</td>                <td style="vertical-align: middle;">15</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4860"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4860"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">17h-18h</td>                <td style="vertical-align: middle;">Mal cierre del molde </td>                <td style="vertical-align: middle;">tapones llenos de aluminio </td>                <td style="vertical-align: middle;">ratocar </td>                <td style="vertical-align: middle;">MOLDE SUCIO</td>                <td style="vertical-align: middle;">35</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="15"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="15"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">20h-21h</td>                <td style="vertical-align: middle;">no hay carros de scrab vacio </td>                <td style="vertical-align: middle;">no llega agv con carro </td>                <td style="vertical-align: middle;">buscar carro </td>                <td style="vertical-align: middle;">CAMBIO CARRO</td>                <td style="vertical-align: middle;">7</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="16"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="16"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">21h-22h</td>                <td style="vertical-align: middle;">no hay carros de scrab vacio </td>                <td style="vertical-align: middle;">no llega agv con carro </td>                <td style="vertical-align: middle;">buscar carro </td>                <td style="vertical-align: middle;">CAMBIO CARRO</td>                <td style="vertical-align: middle;">7</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="9"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="9"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">14h-15h</td>                <td style="vertical-align: middle;">Saturacion de siif </td>                <td style="vertical-align: middle;">cambio de turno </td>                <td style="vertical-align: middle;">esperar a desaturar y arrancar </td>                <td style="vertical-align: middle;">SATURACION SIIF</td>                <td style="vertical-align: middle;">12</td>
+                </tr>
+                
+                  
+</tbody>
+</table>
+
+</font>
+
+</div>
+</div>
+<br>
+<br>
+<br>
+<!-- TURNO DE NOCHE -->
+
+
+<div class="row-md-10 offset-md-1  align-items-center mr-auto ml-auto mt-1 mb-3 pt-2 pb-2 pl-2 pr-2 border border-dark" style="width: 100%" >            
+
+                                                                                                
+
+              <!-- PROBLEMAS 2 -->
+
+                                                                                                  
+            <!-- PROBLEMA 3 -->
+
+                                                                                            
+            
+            <h2 align="center">Turno de noche</h2>
+
+            
+                <div id="myDiv2">
+
+                </div>
+                
+                <script type="text/javascript" >
+                function crearCadenaLineal(json){
+                    var parsed = JSON.parse(json);
+                    var arr =[];
+                    for(var x in parsed){
+                        arr.push(parsed[x]);
+                    }
+                    return arr;
+                }
+
+                </script>
+
+                <script type="text/javascript"  >
+
+                datosX=crearCadenaLineal('["22h-23h","23h-24h","24h-1h","1h-2h","2h-3h","3h-4h","4h-5h","5h-6h","22h-23h","23h-24h","24h-1h","1h-2h","2h-3h","3h-4h","4h-5h","5h-6h"]')
+                var trace21 = {
+                    x: datosX,
+                    y: [38, 76, 114, 152, 190, 228, 266, 304],
+                    name: '100% RO',
+                    mode: 'lines',
+                };  
+                var trace22 = {
+                    x:datosX,
+                    y: [30, 60, 90, 120, 150, 180, 210, 240],
+                    name: '78% RO',
+                    mode: 'lines',
+                };
+                var trace23 = {
+                    x: datosX,
+                    y: [30, 30, 30, 30, 30, 30, 30, 30],
+                    name: 'OBJ HORA',
+                    mode: 'lines',
+                
+                };
+                var trace24 = {
+                    x: datosX,
+                    y: [32, 36, 34, 30, 37, 34, 8, 20],
+                    marker:{
+                    color: ['rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(0,255,0,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)']
+                    },
+                    
+                    name: 'PIEZAS',
+                    type: 'bar'
+                    
+                };
+                var trace25 = {
+                    x: datosX,
+                    y: [32, 68, 102, 132, 169, 203, 211, 231],
+                    name: 'Acumulado',
+                    mode: 'lines',
+                
+                };
+                var trace26 = {
+                    x: datosX,
+                    y: [400, 400, 400, 400, 400, 400, 400, 400],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 1',
+                    text: ['TIPO: ROBOT ESPRAYADO<br>Sintoma: MAQUINA PARADA <br>Causa: ROBOT FUERA DE POSECION <br>Resultado: LLEVAR A REPLI  Y ARRANCAR <br>Tiempo: 8 min', '', '', 'TIPO: CONTROL INTEGRIDAD<br>Sintoma: MAQUINA PARADA <br>Causa: FALLO INTEGRIDAD <br>Resultado: revisar molde y limpiar molde <br>Tiempo: 8 min', '', '', 'TIPO: PMA LIMPIEZA<br>Sintoma: PARAR MAQUINA <br>Causa: PMA MOLDE <br>Resultado: PULIR MOLDE , LIMPIAR MOLDE Y ENGRASAR EXPULSORES <br>Tiempo: 35 min', 'TIPO: MOLDE SUCIO<br>Sintoma: MAQUINA PARADA <br>Causa: MAL CIERRE DEL MOLDE <br>Resultado: REVISAR MOLDE Y LIMPIAR <br>Tiempo: 6 min'],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,0,0,0.9)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)', 'rgba(255,0,0,1)']
+                    },
+                };
+
+                var trace27 = {
+                    x: datosX,
+                    y: [375, 375, 375, 375, 375, 375, 375, 375],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 2',
+                    text: ['', '', '', '', '', '', '', 'TIPO: CONTROL INTEGRIDAD<br>Sintoma: MAQUINA PARADA <br>Causa: FALLO INTEGRIDAD 2 veces <br>Resultado: REVISAR MOLDE Y LIMPIAR MOLDE <br>Tiempo: 16 min'],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,0,0,1)']
+                    },
+                };
+                var trace28 = {
+                    x: datosX,
+                    y: [350, 350, 350, 350, 350, 350, 350, 350],
+                    mode: 'markers',
+                    type: 'scatter',
+                    name: 'Parada 3',
+                    text: ['', '', '', '', '', '', '', ''],
+                    textposition: 'top center',
+                    textfont: {
+                    family:  'Raleway, sans-serif'
+                    },
+                    marker: { 
+                        size: 6,
+                        color: ['rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)', 'rgba(255,255,255,1)']
+                    },
+                };
+                var data = [trace21, trace22, trace23, trace24, trace25, trace26, trace27, trace28];
+                var layout = {
+                    title: {
+                    font: {
+                        family: 'Arial, monospace',
+                        size: 24
+                    },
+                    xref: 'paper',
+                    x: 0.05,
+                    },
+                    xaxis: {
+                    title: {
+                        text: 'Hora',
+                        font: {
+                        family: 'Arial, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                        }
+                    },
+                    },
+                    yaxis: {
+                    title: {
+                        text: 'Nº de piezas',
+                        font: {
+                        family: 'Arial, monospace',
+                        size: 18,
+                        color: '#7f7f7f'
+                        }
+                    }
+                    }
+                };
+
+                Plotly.newPlot('myDiv2', data, layout);
+                </script>
+        </div>
+
+        </form>
+        <div class="row">
+        <div class="col">
+
+        <form action="hxh_inyectoras_guardarpiezas.php" method="POST"> 
+        <input type="hidden" id="iny" name="iny" value="1"  >
+
+        <font size="2" face="Arial">  
+
+        <table style="text-align: center;" align="center" border="1"class="table table-striped table-sm ">
+            <thead class="thead-dark">
+                <tr>
+                  <th scope="col">HORA </td>
+                  <th scope="col">22-23<br></td>
+                  <th scope="col">23-0<br></td>
+                  <th scope="col">0-1<br></td>
+                  <th scope="col">1-2<br></td>
+                  <th scope="col">2-3<br></td>
+                  <th scope="col">3-4<br></td>
+                  <th scope="col">4-5<br></td>
+                  <th scope="col">5-6<br></td>
+
+                </tr>
+            </thead>
+            <tbody>
+            </tr>
+    </thead>
+    <tbody>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                OK
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_17" name="piezas_buenas_17"value="32">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_17" name="piezas_buenas_17"value="36">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_18" name="piezas_buenas_18"value="36">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_18" name="piezas_buenas_18"value="27">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_19" name="piezas_buenas_19"value="34">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_19" name="piezas_buenas_19"value="36">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_20" name="piezas_buenas_20"value="30">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_20" name="piezas_buenas_20"value="26">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_21" name="piezas_buenas_21"value="37">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_21" name="piezas_buenas_21"value="17">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_22" name="piezas_buenas_22"value="34">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_22" name="piezas_buenas_22"value="26">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_23" name="piezas_buenas_23"value="8">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_23" name="piezas_buenas_23"value="32">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_24" name="piezas_buenas_24"value="20">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_buenas_24" name="piezas_buenas_24"value="35">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                NOK
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_17" name="piezas_malas_17" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_17" name="piezas_malas_17" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_18" name="piezas_malas_18" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_18" name="piezas_malas_18" value="1">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_19" name="piezas_malas_19" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_19" name="piezas_malas_19" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_20" name="piezas_malas_20" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_20" name="piezas_malas_20" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_21" name="piezas_malas_21" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_21" name="piezas_malas_21" value="3">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_22" name="piezas_malas_22" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_22" name="piezas_malas_22" value="2">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_23" name="piezas_malas_23" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_23" name="piezas_malas_23" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_24" name="piezas_malas_24" value="0">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="piezas_malas_24" name="piezas_malas_24" value="0">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                MOLDE
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_17" name="molde_17" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_17" name="molde_17" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_18" name="molde_18" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_18" name="molde_18" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_19" name="molde_19" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_19" name="molde_19" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_20" name="molde_20" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_20" name="molde_20" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_21" name="molde_21" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_21" name="molde_21" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_22" name="molde_22" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_22" name="molde_22" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_23" name="molde_23" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_23" name="molde_23" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_24" name="molde_24" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="molde_24" name="molde_24" value="">        
+            </td>
+                    </tr>
+        <tr>
+        
+            <td style="vertical-align: middle;">
+                COMENTARIOS
+            </td>                    
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_17" name="comentarios_17" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_17" name="comentarios_17" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_18" name="comentarios_18" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_18" name="comentarios_18" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_19" name="comentarios_19" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_19" name="comentarios_19" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_20" name="comentarios_20" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_20" name="comentarios_20" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_21" name="comentarios_21" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_21" name="comentarios_21" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_22" name="comentarios_22" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_22" name="comentarios_22" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_23" name="comentarios_23" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_23" name="comentarios_23" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_24" name="comentarios_24" value="">        
+            </td>
+                                
+
+            <td style="vertical-align: middle;">
+                  <input type="text" class="form-control" id="comentarios_24" name="comentarios_24" value="">        
+            </td>
+                    </tr>
+    
+    </tbody>
+</table>
+
+</font>
+</div>
+            <input style="vertical-align: middle;" type="submit" value="GUARDAR" class=" btn btn-primary btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            <input type="hidden" id="fecha" name="fecha" value="2021-05-28"  >
+            <input type="hidden" id="inyectora" name="inyectora" value="Inyectora 1"  >
+            <input type="hidden" id="tabla" name="tabla" value="hxh_inyectora_registro_1"  >
+            <input type="hidden" id="operario" name="operario" value="Alejandro Hidalgo Ferrero"  >
+            <input type="hidden" id="uet" name="uet" value="MC"  >
+            <input type="hidden" id="ju" name="ju" value="Virginia Ferrari"  >
+            <input type="hidden" id="turno" name="turno" value="NOCHE" >
+</div>
+</form>
+
+<br>
+<div class="row">
+    <form action="hxh_inyectoras_añadirparada.php" method="POST"> 
+            <input style="vertical-align: middle;" type="submit" value="+ PARADA" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            <input type="hidden" id="turno" name="turno" value="NOCHE"  >
+            <button type="button" class="btn btn-info btn-sm" data-toggle="collapse" data-target="#tabla_mañana">Desplegar</button>
+
+    </form>
+</div>
+
+
+<div id="tabla_mañana" class="collapse">
+
+<div class="row">
+
+<font size="2" face="Arial">  
+
+<table style="text-align: center;" align="center" border="1"class="table table-striped table-sm ">
+    <thead class="thead-dark">
+        <tr>
+          <th scope="col"> </td>
+          <th scope="col">HORA<br></td>
+          <th scope="col">SINTOMA<br></td>
+          <th scope="col">CAUSA<br></td>
+          <th scope="col">RESULTADO<br></td>
+          <th scope="col">TIPO<br></td>
+          <th scope="col">TIEMPO<br></td>
+          <tr>
+
+             
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="17"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="17"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">22h-23h</td>                <td style="vertical-align: middle;">MAQUINA PARADA </td>                <td style="vertical-align: middle;">ROBOT FUERA DE POSECION </td>                <td style="vertical-align: middle;">LLEVAR A REPLI  Y ARRANCAR </td>                <td style="vertical-align: middle;">ROBOT ESPRAYADO</td>                <td style="vertical-align: middle;">8</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="20"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="20"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">1h-2h</td>                <td style="vertical-align: middle;">MAQUINA PARADA </td>                <td style="vertical-align: middle;">FALLO INTEGRIDAD </td>                <td style="vertical-align: middle;">revisar molde y limpiar molde </td>                <td style="vertical-align: middle;">CONTROL INTEGRIDAD</td>                <td style="vertical-align: middle;">8</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="23"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="23"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">4h-5h</td>                <td style="vertical-align: middle;">PARAR MAQUINA </td>                <td style="vertical-align: middle;">PMA MOLDE </td>                <td style="vertical-align: middle;">PULIR MOLDE , LIMPIAR MOLDE Y ENGRASAR EXPULSORES </td>                <td style="vertical-align: middle;">PMA LIMPIEZA</td>                <td style="vertical-align: middle;">35</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="24"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="24"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">5h-6h</td>                <td style="vertical-align: middle;">MAQUINA PARADA </td>                <td style="vertical-align: middle;">MAL CIERRE DEL MOLDE </td>                <td style="vertical-align: middle;">REVISAR MOLDE Y LIMPIAR </td>                <td style="vertical-align: middle;">MOLDE SUCIO</td>                <td style="vertical-align: middle;">6</td>
+                </tr>
+                
+                   
+                
+                    <td style="vertical-align: middle;">
+                        <div class="row mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                            <form action="hxh_inyectoras_añadirparada modificar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Modificar" class=" btn btn-warning btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4872"  >
+                            </form>
+                            <form action="hxh_inyectoras_añadirparada eliminar.php" method="POST"> 
+                                    <input style="vertical-align: middle;" type="submit" value="Eliminar" class=" btn btn-danger btn-sm mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+                                    <input type="hidden" id="id" name="id" value="4872"  >
+                            </form>
+                        </div>                    
+                    </td>                <td style="vertical-align: middle;">5h-6h</td>                <td style="vertical-align: middle;">MAQUINA PARADA </td>                <td style="vertical-align: middle;">FALLO INTEGRIDAD 2 veces </td>                <td style="vertical-align: middle;">REVISAR MOLDE Y LIMPIAR MOLDE </td>                <td style="vertical-align: middle;">CONTROL INTEGRIDAD</td>                <td style="vertical-align: middle;">16</td>
+                </tr>
+                
+                  
+</tbody>
+</table>
+
+</font>
+
+
+</div>
+
+</div>
+    </div>
+
+
+
+    <!-- Footer -->
+    
+<br><br><br>
+
+<footer style="width:100%; " class="mt-5 font-small footer-dark footer-copyright text-center py-3 text-muted bg-dark fixed-bottom">� 2020 Copyright: <a href="http://10.217.144.35/D-WIDO/acercaDe.php">Acerca de</a></footer>
+
+
+    <!-- Footer -->
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+
+</body>
+</html>

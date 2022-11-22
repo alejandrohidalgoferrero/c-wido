@@ -1,0 +1,1208 @@
+﻿<!DOCTYPE HTML>
+<!-- saved from url=(0073)http://php.net/manual/en/features.file-upload.post-method.php -->
+<!DOCTYPE html PUBLIC "" ""><HTML lang="en" xmlns="http://www.w3.org/1999/xhtml"><HEAD><META 
+content="IE=11.0000" http-equiv="X-UA-Compatible">
+   
+<META charset="utf-8">   
+<META name="viewport" content="width=device-width, initial-scale=1.0">   
+<TITLE>PHP: POST method uploads - Manual </TITLE>  <LINK href="http://php.net/favicon.ico" 
+rel="shortcut icon">  <LINK title="Add PHP.net search" href="http://php.net/phpnetimprovedsearch.src" 
+rel="search" type="application/opensearchdescription+xml">  <LINK title="PHP Release feed" 
+href="http://php.net/releases/feed.php" rel="alternate" type="application/atom+xml"> 
+ <LINK title="PHP: Hypertext Preprocessor" href="http://php.net/feed.atom" rel="alternate" 
+type="application/atom+xml">  <LINK href="http://php.net/manual/en/features.file-upload.post-method.php" 
+rel="canonical">  <LINK href="http://php.net/file-upload.post-method" rel="shorturl"> 
+ <LINK href="http://php.net/file-upload.post-method" rel="alternate" hreflang="x-default"> 
+ <LINK href="http://php.net/manual/en/index.php" rel="contents">  <LINK href="http://php.net/manual/en/features.file-upload.php" 
+rel="index">  <LINK href="http://php.net/manual/en/features.file-upload.php" 
+rel="prev">  <LINK href="http://php.net/manual/en/features.file-upload.errors.php" 
+rel="next">  <LINK href="http://php.net/manual/en/features.file-upload.post-method.php" 
+rel="alternate" hreflang="en">  <LINK href="http://php.net/manual/pt_BR/features.file-upload.post-method.php" 
+rel="alternate" hreflang="pt_BR">  <LINK href="http://php.net/manual/zh/features.file-upload.post-method.php" 
+rel="alternate" hreflang="zh">  <LINK href="http://php.net/manual/fr/features.file-upload.post-method.php" 
+rel="alternate" hreflang="fr">  <LINK href="http://php.net/manual/de/features.file-upload.post-method.php" 
+rel="alternate" hreflang="de">  <LINK href="http://php.net/manual/ja/features.file-upload.post-method.php" 
+rel="alternate" hreflang="ja">  <LINK href="http://php.net/manual/ro/features.file-upload.post-method.php" 
+rel="alternate" hreflang="ro">  <LINK href="http://php.net/manual/ru/features.file-upload.post-method.php" 
+rel="alternate" hreflang="ru">  <LINK href="http://php.net/manual/es/features.file-upload.post-method.php" 
+rel="alternate" hreflang="es">  <LINK href="http://php.net/manual/tr/features.file-upload.post-method.php" 
+rel="alternate" hreflang="tr"> <LINK href="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached.css" 
+rel="stylesheet" type="text/css" media="screen"> <LINK href="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(1).css" 
+rel="stylesheet" type="text/css" media="screen"> <LINK href="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(2).css" 
+rel="stylesheet" type="text/css" media="screen"> <LINK href="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(3).css" 
+rel="stylesheet" type="text/css" media="screen">  <!--[if lte IE 7]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie7.css" media="screen">
+ <![endif]--> 
+ <!--[if lte IE 8]>
+ <script type="text/javascript">
+  window.brokenIE = true;
+ </script>
+ <![endif]--> 
+ <!--[if lte IE 9]>
+ <link rel="stylesheet" type="text/css" href="http://php.net/styles/workarounds.ie9.css" media="screen">
+ <![endif]--> 
+ <!--[if IE]>
+ <script type="text/javascript" src="http://php.net/js/ext/html5.js"></script>
+ <![endif]--> 
+ 
+<META name="GENERATOR" content="MSHTML 11.00.9600.18666"></HEAD> 
+<BODY class="docs "><NAV class="navbar navbar-fixed-top" id="head-nav">
+<DIV class="navbar-inner clearfix"><A class="brand" href="http://php.net/"><IMG 
+width="48" height="24" alt="php" src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/php-logo.svg"></A>
+<DIV id="mainmenu-toggle-overlay"></DIV><INPUT id="mainmenu-toggle" type="checkbox"> 
+    
+<UL class="nav">
+  <LI><A href="http://php.net/downloads">Downloads</A></LI>
+  <LI class="active"><A href="http://php.net/docs.php">Documentation</A></LI>
+  <LI><A href="http://php.net/get-involved">Get Involved</A></LI>
+  <LI><A href="http://php.net/support">Help</A></LI></UL>
+<FORM class="navbar-search" id="topsearch" action="/search.php"><INPUT name="show" type="hidden" value="quickref"> 
+      
+<INPUT name="pattern" class="search-query" accesskey="s" type="search" placeholder="Search" value=""> 
+    </FORM></DIV>
+<DIV id="flash-message"></DIV></NAV>
+<DIV class="headsup"><A href="http://php.net/index.php#id2017-09-14-1">PHP 7.2.0 
+Release Candidate 2 Released</A></DIV><NAV id="trick">
+<DIV>
+<DL>
+  <DT><A href="http://php.net/manual/en/getting-started.php">Getting 
+  Started</A></DT>
+  <DD><A href="http://php.net/manual/en/introduction.php">Introduction</A></DD>
+  <DD><A href="http://php.net/manual/en/tutorial.php">A simple tutorial</A></DD>
+  <DT><A href="http://php.net/manual/en/langref.php">Language Reference</A></DT>
+  <DD><A href="http://php.net/manual/en/language.basic-syntax.php">Basic 
+  syntax</A></DD>
+  <DD><A href="http://php.net/manual/en/language.types.php">Types</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.variables.php">Variables</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.constants.php">Constants</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.expressions.php">Expressions</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.operators.php">Operators</A></DD>
+  <DD><A href="http://php.net/manual/en/language.control-structures.php">Control 
+  Structures</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.functions.php">Functions</A></DD>
+  <DD><A href="http://php.net/manual/en/language.oop5.php">Classes and 
+  Objects</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.namespaces.php">Namespaces</A></DD>
+  <DD><A href="http://php.net/manual/en/language.errors.php">Errors</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.exceptions.php">Exceptions</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/language.generators.php">Generators</A></DD>
+  <DD><A href="http://php.net/manual/en/language.references.php">References 
+  Explained</A></DD>
+  <DD><A href="http://php.net/manual/en/reserved.variables.php">Predefined 
+  Variables</A></DD>
+  <DD><A href="http://php.net/manual/en/reserved.exceptions.php">Predefined 
+  Exceptions</A></DD>
+  <DD><A href="http://php.net/manual/en/reserved.interfaces.php">Predefined 
+  Interfaces and Classes</A></DD>
+  <DD><A href="http://php.net/manual/en/context.php">Context options and 
+  parameters</A></DD>
+  <DD><A href="http://php.net/manual/en/wrappers.php">Supported Protocols and 
+  Wrappers</A></DD></DL>
+<DL>
+  <DT><A href="http://php.net/manual/en/security.php">Security</A></DT>
+  <DD><A 
+href="http://php.net/manual/en/security.intro.php">Introduction</A></DD>
+  <DD><A href="http://php.net/manual/en/security.general.php">General 
+  considerations</A></DD>
+  <DD><A href="http://php.net/manual/en/security.cgi-bin.php">Installed as CGI 
+  binary</A></DD>
+  <DD><A href="http://php.net/manual/en/security.apache.php">Installed as an 
+  Apache module</A></DD>
+  <DD><A href="http://php.net/manual/en/security.sessions.php">Session 
+  Security</A></DD>
+  <DD><A href="http://php.net/manual/en/security.filesystem.php">Filesystem 
+  Security</A></DD>
+  <DD><A href="http://php.net/manual/en/security.database.php">Database 
+  Security</A></DD>
+  <DD><A href="http://php.net/manual/en/security.errors.php">Error 
+  Reporting</A></DD>
+  <DD><A href="http://php.net/manual/en/security.globals.php">Using Register 
+  Globals</A></DD>
+  <DD><A href="http://php.net/manual/en/security.variables.php">User Submitted 
+  Data</A></DD>
+  <DD><A href="http://php.net/manual/en/security.magicquotes.php">Magic 
+  Quotes</A></DD>
+  <DD><A href="http://php.net/manual/en/security.hiding.php">Hiding PHP</A></DD>
+  <DD><A href="http://php.net/manual/en/security.current.php">Keeping 
+  Current</A></DD>
+  <DT><A href="http://php.net/manual/en/features.php">Features</A></DT>
+  <DD><A href="http://php.net/manual/en/features.http-auth.php">HTTP 
+  authentication with PHP</A></DD>
+  <DD><A href="http://php.net/manual/en/features.cookies.php">Cookies</A></DD>
+  <DD><A href="http://php.net/manual/en/features.sessions.php">Sessions</A></DD>
+  <DD><A href="http://php.net/manual/en/features.xforms.php">Dealing with 
+  XForms</A></DD>
+  <DD><A href="http://php.net/manual/en/features.file-upload.php">Handling file 
+  uploads</A></DD>
+  <DD><A href="http://php.net/manual/en/features.remote-files.php">Using remote 
+  files</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/features.connection-handling.php">Connection 
+  handling</A></DD>
+  <DD><A 
+  href="http://php.net/manual/en/features.persistent-connections.php">Persistent 
+  Database Connections</A></DD>
+  <DD><A href="http://php.net/manual/en/features.safe-mode.php">Safe 
+  Mode</A></DD>
+  <DD><A href="http://php.net/manual/en/features.commandline.php">Command line 
+  usage</A></DD>
+  <DD><A href="http://php.net/manual/en/features.gc.php">Garbage 
+  Collection</A></DD>
+  <DD><A href="http://php.net/manual/en/features.dtrace.php">DTrace Dynamic 
+  Tracing</A></DD></DL>
+<DL>
+  <DT><A href="http://php.net/manual/en/funcref.php">Function Reference</A></DT>
+  <DD><A href="http://php.net/manual/en/refs.basic.php.php">Affecting PHP's 
+  Behaviour</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.utilspec.audio.php">Audio Formats 
+  Manipulation</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.remote.auth.php">Authentication 
+  Services</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.utilspec.cmdline.php">Command Line 
+  Specific Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.compression.php">Compression and 
+  Archive Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.creditcard.php">Credit Card 
+  Processing</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.crypto.php">Cryptography 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.database.php">Database 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.calendar.php">Date and Time Related 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.fileprocess.file.php">File System 
+  Related Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.international.php">Human Language 
+  and Character Encoding Support</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.utilspec.image.php">Image 
+  Processing and Generation</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.remote.mail.php">Mail Related 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.math.php">Mathematical 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.utilspec.nontext.php">Non-Text MIME 
+  Output</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.fileprocess.process.php">Process 
+  Control Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.basic.other.php">Other Basic 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.remote.other.php">Other 
+  Services</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.search.php">Search Engine 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.utilspec.server.php">Server 
+  Specific Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.basic.session.php">Session 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.basic.text.php">Text 
+  Processing</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.basic.vartype.php">Variable and 
+  Type Related Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.webservice.php">Web 
+  Services</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.utilspec.windows.php">Windows Only 
+  Extensions</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.xml.php">XML Manipulation</A></DD>
+  <DD><A href="http://php.net/manual/en/refs.ui.php">GUI Extensions</A></DD></DL>
+<DL>
+  <DT>Keyboard Shortcuts</DT>
+  <DT>?</DT>
+  <DD>This help</DD>
+  <DT>j</DT>
+  <DD>Next menu item</DD>
+  <DT>k</DT>
+  <DD>Previous menu item</DD>
+  <DT>g p</DT>
+  <DD>Previous man page</DD>
+  <DT>g n</DT>
+  <DD>Next man page</DD>
+  <DT>G</DT>
+  <DD>Scroll to bottom</DD>
+  <DT>g g</DT>
+  <DD>Scroll to top</DD>
+  <DT>g h</DT>
+  <DD>Goto homepage</DD>
+  <DT>g s</DT>
+  <DD>Goto search<BR>(current page)</DD>
+  <DT>/</DT>
+  <DD>Focus search box</DD></DL></DIV></NAV> 
+<DIV id="goto">
+<DIV class="search">
+<DIV class="text"></DIV>
+<DIV class="results">
+<UL></UL></DIV></DIV></DIV>
+<DIV class="clearfix" id="breadcrumbs">
+<DIV id="breadcrumbs-inner">
+<DIV class="next"><A href="http://php.net/manual/en/features.file-upload.errors.php"> 
+         Error Messages Explained »         </A>       </DIV>
+<DIV class="prev"><A href="http://php.net/manual/en/features.file-upload.php">   
+       « Handling file uploads        </A>       </DIV>
+<UL>
+  <LI><A href="http://php.net/manual/en/index.php">PHP Manual</A></LI>
+  <LI><A href="http://php.net/manual/en/features.php">Features</A></LI>
+  <LI><A href="http://php.net/manual/en/features.file-upload.php">Handling file 
+  uploads</A></LI></UL></DIV></DIV>
+<DIV class="clearfix" id="layout"><SECTION id="layout-content">
+<DIV class="page-tools">
+<DIV class="change-language">
+<FORM name="changelang" id="changelang" action="/manual/change.php" 
+method="get">
+<FIELDSET><LABEL for="changelang-langs">Change language:</LABEL>           
+<SELECT name="page" id="changelang-langs" onchange="document.changelang.submit()"><OPTION 
+  selected="selected" 
+  value="en/features.file-upload.post-method.php">English</OPTION>             
+  <OPTION value="pt_BR/features.file-upload.post-method.php">Brazilian 
+  Portuguese</OPTION>             <OPTION value="zh/features.file-upload.post-method.php">Chinese 
+  (Simplified)</OPTION>             <OPTION value="fr/features.file-upload.post-method.php">French</OPTION> 
+              <OPTION 
+  value="de/features.file-upload.post-method.php">German</OPTION>             
+  <OPTION value="ja/features.file-upload.post-method.php">Japanese</OPTION>      
+         <OPTION 
+  value="ro/features.file-upload.post-method.php">Romanian</OPTION>             
+  <OPTION value="ru/features.file-upload.post-method.php">Russian</OPTION>       
+        <OPTION value="es/features.file-upload.post-method.php">Spanish</OPTION> 
+              <OPTION 
+  value="tr/features.file-upload.post-method.php">Turkish</OPTION>             
+  <OPTION value="help-translate.php">Other</OPTION>           </SELECT>         
+</FIELDSET></FORM></DIV>
+<DIV class="edit-bug"><A href="https://edit.php.net/?project=PHP&amp;perm=en/features.file-upload.post-method.php">Edit</A> 
+      <A href="https://bugs.php.net/report.php?bug_type=Documentation+problem&amp;manpage=features.file-upload.post-method">Report 
+a Bug</A>     </DIV></DIV>
+<DIV class="sect1" id="features.file-upload.post-method">
+<H2 class="title">POST method uploads</H2>
+<P class="simpara">    This feature lets people upload both text and binary 
+files.     With PHP's authentication and file manipulation functions,    you 
+have full control over who is allowed to upload and    what is to be done with 
+the file once it has been uploaded.    </P>
+<P class="simpara">    PHP is capable of receiving file uploads from any 
+RFC-1867    compliant browser.    </P>
+<BLOCKQUOTE class="note">
+  <P><STRONG class="note">Note</STRONG>:      <STRONG>Related Configurations 
+  Note</STRONG><BR>
+  <P class="para">     See also the <A class="link" href="http://php.net/manual/en/ini.core.php#ini.file-uploads">file_uploads</A>, 
+        <A class="link" href="http://php.net/manual/en/ini.core.php#ini.upload-max-filesize">upload_max_filesize</A>, 
+       <A class="link" href="http://php.net/manual/en/ini.core.php#ini.upload-tmp-dir">upload_tmp_dir</A>, 
+       <A class="link" href="http://php.net/manual/en/ini.core.php#ini.post-max-size">post_max_size</A> 
+  and      <A class="link" href="http://php.net/manual/en/info.configuration.php#ini.max-input-time">max_input_time</A> 
+  directives      in <VAR class="filename">php.ini</VAR>     </P>
+  <P></P></BLOCKQUOTE>
+<P class="para">    PHP also supports PUT-method file uploads as used by     
+<SPAN class="productname">Netscape Composer</SPAN> and W3C's      <SPAN class="productname">Amaya</SPAN> 
+clients.  See the <A class="link" href="http://php.net/manual/en/features.file-upload.put-method.php">PUT 
+Method    Support</A> for more details.    </P>
+<P class="para">
+<DIV class="example" id="example-383">
+<P><STRONG>Example #1 File Upload Form</STRONG></P>
+<DIV class="example-contents">
+<P>      A file upload screen can be built by creating a special form which      
+looks something like this:      </P></DIV>
+<DIV class="example-contents">
+<DIV class="htmlcode">
+<PRE class="htmlcode">&lt;!-- The data encoding type, enctype, MUST be specified as below --&gt;
+&lt;form enctype="multipart/form-data" action="__URL__" method="POST"&gt;
+    &lt;!-- MAX_FILE_SIZE must precede the file input field --&gt;
+    &lt;input type="hidden" name="MAX_FILE_SIZE" value="30000" /&gt;
+    &lt;!-- Name of input element determines name in $_FILES array --&gt;
+    Send this file: &lt;input name="userfile" type="file" /&gt;
+    &lt;input type="submit" value="Send File" /&gt;
+&lt;/form&gt;</PRE></DIV></DIV>
+<DIV class="example-contents">
+<P>      The <EM>__URL__</EM> in the above example should be replaced,      and 
+point to a PHP file.      </P></DIV>
+<DIV class="example-contents">
+<P>      The <EM>MAX_FILE_SIZE</EM> hidden field (measured in bytes) must      
+precede the file input field, and its value is the maximum filesize accepted by 
+PHP.      This form element should always be used as it saves users the trouble 
+of      waiting for a big file being transferred only to find that it was too    
+  large and the transfer failed.  Keep in mind: fooling this setting on the      
+browser side is quite easy, so never rely on files with a greater size      
+being blocked by this feature. It is merely a convenience feature for      users 
+on the client side of the application. The PHP settings (on the server      
+side) for maximum-size, however, cannot be fooled.      </P></DIV></DIV>
+<P></P>
+<BLOCKQUOTE class="note">
+  <P><STRONG class="note">Note</STRONG>:      
+  <P class="para">     Be sure your file upload form has attribute 
+  <EM>enctype="multipart/form-data"</EM>     otherwise the file upload will not 
+  work.     </P>
+  <P></P></BLOCKQUOTE>
+<P class="para">    The global <VAR class="varname"><VAR class="varname"><A 
+class="classname" 
+href="http://php.net/manual/en/reserved.variables.files.php">$_FILES</A></VAR></VAR> 
+will contain all the uploaded file information.    Its contents from the example 
+form is as follows. Note that this assumes the use of     the file upload name 
+<EM class="emphasis">userfile</EM>, as used in the example     script above. 
+This can be any name.     
+<DL>
+  <DT><VAR class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['name']</A></VAR></VAR></DT>
+  <DD>
+  <P class="para">        The original name of the file on the client machine.   
+       </P></DD>
+  <DT><VAR class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['type']</A></VAR></VAR></DT>
+  <DD>
+  <P class="para">        The mime type of the file, if the browser provided 
+  this        information.  An example would be         <EM>"image/gif"</EM>. 
+  This mime type is however        not checked on the PHP side and therefore 
+  don't take its value        for granted.        </P></DD>
+  <DT><VAR class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['size']</A></VAR></VAR></DT>
+  <DD>
+  <P class="para">        The size, in bytes, of the uploaded file.        
+  </P></DD>
+  <DT><VAR class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['tmp_name']</A></VAR></VAR></DT>
+  <DD>
+  <P class="para">        The temporary filename of the file in which the 
+  uploaded file        was stored on the server.        </P></DD>
+  <DT><VAR class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['error']</A></VAR></VAR></DT>
+  <DD>
+  <P class="para">        The <A class="link" href="http://php.net/manual/en/features.file-upload.errors.php">error 
+  code</A>        associated with this file upload.        </P></DD></DL>
+<P></P>
+<P class="para">    Files will, by default be stored in the server's default 
+temporary    directory, unless another location has been given with the <A 
+class="link" 
+href="http://php.net/manual/en/ini.core.php#ini.upload-tmp-dir">upload_tmp_dir</A> 
+directive in     <VAR class="filename">php.ini</VAR>. The server's default 
+directory can    be changed by setting the environment variable     <SPAN class="envar">TMPDIR</SPAN> 
+in the environment in which PHP runs.    Setting it using <SPAN 
+class="function"><A class="function" href="http://php.net/manual/en/function.putenv.php">putenv()</A></SPAN> 
+from within a PHP    script will not work. This environment variable can also be 
+used    to make sure that other operations are working on uploaded files,    as 
+well.     
+<DIV class="example" id="example-384">
+<P><STRONG>Example #2 Validating file uploads</STRONG></P>
+<DIV class="example-contents">
+<P>      See also the function entries for <SPAN class="function"><A class="function" 
+href="http://php.net/manual/en/function.is-uploaded-file.php">is_uploaded_file()</A></SPAN> 
+      and <SPAN class="function"><A class="function" href="http://php.net/manual/en/function.move-uploaded-file.php">move_uploaded_file()</A></SPAN> 
+for further information. The      following example will process the file upload 
+that came from a form.      </P></DIV>
+<DIV class="example-contents">
+<DIV class="phpcode"><CODE><SPAN style="color: rgb(0, 0, 0);"><SPAN style="color: rgb(0, 0, 187);">&lt;?php<BR></SPAN><SPAN 
+style="color: rgb(255, 128, 0);">//&nbsp;In&nbsp;PHP&nbsp;versions&nbsp;earlier&nbsp;than&nbsp;4.1.0,&nbsp;$HTTP_POST_FILES&nbsp;should&nbsp;be&nbsp;used&nbsp;instead<BR>//&nbsp;of&nbsp;$_FILES.<BR><BR></SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$uploaddir&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">=&nbsp;</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">'/var/www/uploads/'</SPAN><SPAN style="color: rgb(0, 119, 0);">;<BR></SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$uploadfile&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">=&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$uploaddir&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">.&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">basename</SPAN><SPAN style="color: rgb(0, 119, 0);">(</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$_FILES</SPAN><SPAN style="color: rgb(0, 119, 0);">[</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">'userfile'</SPAN><SPAN style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">'name'</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">]);<BR><BR>echo&nbsp;</SPAN><SPAN style="color: rgb(221, 0, 0);">'&lt;pre&gt;'</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">;<BR>if&nbsp;(</SPAN><SPAN style="color: rgb(0, 0, 187);">move_uploaded_file</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">(</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$_FILES</SPAN><SPAN style="color: rgb(0, 119, 0);">[</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">'userfile'</SPAN><SPAN style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">'tmp_name'</SPAN><SPAN style="color: rgb(0, 119, 0);">],&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$uploadfile</SPAN><SPAN style="color: rgb(0, 119, 0);">))&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"File&nbsp;is&nbsp;valid,&nbsp;and&nbsp;was&nbsp;successfully&nbsp;uploaded.\n"</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">;<BR>}&nbsp;else&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"Possible&nbsp;file&nbsp;upload&nbsp;attack!\n"</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">;<BR>}<BR><BR>echo&nbsp;</SPAN><SPAN style="color: rgb(221, 0, 0);">'Here&nbsp;is&nbsp;some&nbsp;more&nbsp;debugging&nbsp;info:'</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">;<BR></SPAN><SPAN 
+style="color: rgb(0, 0, 187);">print_r</SPAN><SPAN style="color: rgb(0, 119, 0);">(</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$_FILES</SPAN><SPAN style="color: rgb(0, 119, 0);">);<BR><BR>print&nbsp;</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"&lt;/pre&gt;"</SPAN><SPAN style="color: rgb(0, 119, 0);">;<BR><BR></SPAN><SPAN 
+style="color: rgb(0, 0, 187);">?&gt;</SPAN> </SPAN> </CODE></DIV></DIV></DIV>
+<P></P>
+<P class="simpara">    The PHP script which receives the uploaded file should 
+implement    whatever logic is necessary for determining what should be done    
+with the uploaded file. You can, for example, use the     <VAR 
+class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['size']</A></VAR></VAR> 
+variable    to throw away any files that are either too small or too big.  You   
+ could use the     <VAR class="varname"><VAR class="varname"><A class="classname" 
+href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['type']</A></VAR></VAR> 
+variable    to throw away any files that didn't match a certain type criteria, 
+but    use this only as first of a series of checks, because this value    is 
+completely under the control of the client and not checked on the PHP    side.   
+ Also, you could use <VAR class="varname"><VAR class="varname"><A class="classname" 
+href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['error']</A></VAR></VAR> 
+    and plan your logic according to the <A class="link" href="http://php.net/manual/en/features.file-upload.errors.php">error 
+codes</A>.    Whatever the logic, you should either delete the file from the    
+temporary directory or move it elsewhere.    </P>
+<P class="simpara">    If no file is selected for upload in your form, PHP will 
+return     <VAR class="varname"><VAR class="varname"><A class="classname" href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['size']</A></VAR></VAR> 
+as 0, and     <VAR class="varname"><VAR class="varname"><A class="classname" 
+href="http://php.net/manual/en/reserved.variables.files.php">$_FILES['userfile']['tmp_name']</A></VAR></VAR> 
+as none.    </P>
+<P class="simpara">    The file will be deleted from the temporary directory at 
+the end    of the request if it has not been moved away or renamed.    </P>
+<DIV class="example" id="example-385">
+<P><STRONG>Example #3 Uploading array of files</STRONG></P>
+<DIV class="example-contents">
+<P>      PHP supports <A class="link" href="http://php.net/manual/en/faq.html.php#faq.html.arrays">HTML 
+array feature</A>      even with files.      </P></DIV>
+<DIV class="example-contents">
+<DIV class="htmlcode">
+<PRE class="htmlcode">&lt;form action="" method="post" enctype="multipart/form-data"&gt;
+&lt;p&gt;Pictures:
+&lt;input type="file" name="pictures[]" /&gt;
+&lt;input type="file" name="pictures[]" /&gt;
+&lt;input type="file" name="pictures[]" /&gt;
+&lt;input type="submit" value="Send" /&gt;
+&lt;/p&gt;
+&lt;/form&gt;</PRE></DIV></DIV>
+<DIV class="example-contents">
+<DIV class="phpcode"><CODE><SPAN style="color: rgb(0, 0, 0);"><SPAN style="color: rgb(0, 0, 187);">&lt;?php<BR></SPAN><SPAN 
+style="color: rgb(0, 119, 0);">foreach&nbsp;(</SPAN><SPAN style="color: rgb(0, 0, 187);">$_FILES</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">[</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"pictures"</SPAN><SPAN style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"error"</SPAN><SPAN style="color: rgb(0, 119, 0);">]&nbsp;as&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$key&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">=&gt;&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$error</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">)&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$error&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">==&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">UPLOAD_ERR_OK</SPAN><SPAN style="color: rgb(0, 119, 0);">)&nbsp;{<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$tmp_name&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">=&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$_FILES</SPAN><SPAN style="color: rgb(0, 119, 0);">[</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"pictures"</SPAN><SPAN style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"tmp_name"</SPAN><SPAN style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$key</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">];<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+style="color: rgb(255, 128, 0);">//&nbsp;basename()&nbsp;may&nbsp;prevent&nbsp;filesystem&nbsp;traversal&nbsp;attacks;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;further&nbsp;validation/sanitation&nbsp;of&nbsp;the&nbsp;filename&nbsp;may&nbsp;be&nbsp;appropriate<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$name&nbsp;</SPAN><SPAN style="color: rgb(0, 119, 0);">=&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">basename</SPAN><SPAN style="color: rgb(0, 119, 0);">(</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$_FILES</SPAN><SPAN style="color: rgb(0, 119, 0);">[</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"pictures"</SPAN><SPAN style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"name"</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">][</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$key</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">]);<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">move_uploaded_file</SPAN><SPAN style="color: rgb(0, 119, 0);">(</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$tmp_name</SPAN><SPAN style="color: rgb(0, 119, 0);">,&nbsp;</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"data/</SPAN><SPAN 
+style="color: rgb(0, 0, 187);">$name</SPAN><SPAN 
+style="color: rgb(221, 0, 0);">"</SPAN><SPAN 
+style="color: rgb(0, 119, 0);">);<BR>&nbsp;&nbsp;&nbsp;&nbsp;}<BR>}<BR></SPAN><SPAN 
+style="color: rgb(0, 0, 187);">?&gt;</SPAN> </SPAN> </CODE></DIV></DIV></DIV>
+<P class="para">    File upload progress bar can be implemented using <A class="link" 
+href="http://php.net/manual/en/session.upload-progress.php">Session Upload 
+Progress</A>.    </P></DIV><SECTION id="usernotes">
+<DIV class="head"><SPAN class="action"><A href="http://php.net/manual/add-note.php?sect=features.file-upload.post-method&amp;redirect=http://php.net/manual/en/features.file-upload.post-method.php"><IMG 
+width="12" height="12" alt="add a note" src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/notes-add@2x.png"> 
+<SMALL>add a note</SMALL></A></SPAN>
+<H3 class="title">User Contributed Notes <SPAN class="count">15 
+notes</SPAN></H3></DIV>
+<DIV id="allnotes">
+<DIV class="note" id="116246">
+<DIV class="votes">
+<DIV id="Vu116246"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=116246&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd116246"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=116246&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="76% like this..." class="tally" id="V116246">    267     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#116246"><STRONG 
+class="user"><EM>Anonymous</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#116246"> 
+¶</A>
+<DIV title="2014-11-29 05:19" class="date"><STRONG>2 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom116246">
+<DIV class="phpcode"><CODE><SPAN class="html">For the love of god, don't do what 
+michael suggests in <A href="http://php.net/manual/en/features.file-upload.post-method.php#94973" 
+target="_blank" 
+rel="nofollow">http://php.net/manual/en/features.file-upload.post-method.php#94973</A> 
+or you will be instantly pwned by someone uploading a php-shell to your script 
+dir.<BR><BR>When the mods come to delete this note for violating the 
+don't-refer-to-another-note rule, please please /please/ delete michael's note 
+too.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="120686">
+<DIV class="votes">
+<DIV id="Vu120686"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=120686&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd120686"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=120686&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="66% like this..." class="tally" id="V120686">    2     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#120686"><STRONG 
+class="user"><EM>Anonymous</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#120686"> 
+¶</A>
+<DIV title="2017-02-21 10:56" class="date"><STRONG>6 months ago</STRONG></DIV>
+<DIV class="text" id="Hcom120686">
+<DIV class="phpcode"><CODE><SPAN class="html">I have found it useful to re-order 
+the multidimensional $_FILES array into a more intuitive format, as proposed by 
+many other developers already. <BR><BR>Unfortunately, most of the proposed 
+functions are not able to re-order the $_FILES array when it has more than 1 
+additional dimension.<BR><BR>Therefore, I would like to contribute the function 
+below, which is capable of meeting the aforementioned requirement:<BR><BR><SPAN 
+class="default">&lt;?php<BR>&nbsp; &nbsp; </SPAN><SPAN class="keyword">function 
+</SPAN><SPAN class="default">get_fixed_files</SPAN><SPAN class="keyword">() 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$function 
+</SPAN><SPAN class="keyword">= function(</SPAN><SPAN 
+class="default">$files</SPAN><SPAN class="keyword">, </SPAN><SPAN class="default">$fixed_files 
+</SPAN><SPAN class="keyword">= array(), </SPAN><SPAN class="default">$path 
+</SPAN><SPAN class="keyword">= array()) use (&amp;</SPAN><SPAN 
+class="default">$function</SPAN><SPAN class="keyword">) {<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; foreach (</SPAN><SPAN class="default">$files 
+</SPAN><SPAN class="keyword">as </SPAN><SPAN class="default">$key </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$value</SPAN><SPAN class="keyword">) 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$temp 
+</SPAN><SPAN class="keyword">= </SPAN><SPAN class="default">$path</SPAN><SPAN 
+class="keyword">;<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+</SPAN><SPAN class="default">$temp</SPAN><SPAN class="keyword">[] = </SPAN><SPAN 
+class="default">$key</SPAN><SPAN class="keyword">;<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+if (</SPAN><SPAN class="default">is_array</SPAN><SPAN 
+class="keyword">(</SPAN><SPAN class="default">$value</SPAN><SPAN 
+class="keyword">)) {<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; </SPAN><SPAN class="default">$fixed_files </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="default">$function</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$value</SPAN><SPAN class="keyword">, </SPAN><SPAN class="default">$fixed_files</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">$temp</SPAN><SPAN 
+class="keyword">);<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } 
+else {<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+</SPAN><SPAN class="default">$next </SPAN><SPAN class="keyword">= </SPAN><SPAN 
+class="default">array_splice</SPAN><SPAN class="keyword">(</SPAN><SPAN class="default">$temp</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">1</SPAN><SPAN class="keyword">, 
+</SPAN><SPAN class="default">1</SPAN><SPAN class="keyword">);<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$temp 
+</SPAN><SPAN class="keyword">= </SPAN><SPAN 
+class="default">array_merge</SPAN><SPAN class="keyword">(</SPAN><SPAN class="default">$temp</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">$next</SPAN><SPAN 
+class="keyword">);<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; </SPAN><SPAN class="default">$new </SPAN><SPAN class="keyword">= 
+&amp;</SPAN><SPAN class="default">$fixed_files</SPAN><SPAN 
+class="keyword">;<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; foreach (</SPAN><SPAN class="default">$temp </SPAN><SPAN 
+class="keyword">as </SPAN><SPAN class="default">$key</SPAN><SPAN 
+class="keyword">) {<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$new </SPAN><SPAN 
+class="keyword">= &amp;</SPAN><SPAN class="default">$new</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="default">$key</SPAN><SPAN class="keyword">];<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$new 
+</SPAN><SPAN class="keyword">= </SPAN><SPAN class="default">$value</SPAN><SPAN 
+class="keyword">;<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+}<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; return </SPAN><SPAN 
+class="default">$fixed_files</SPAN><SPAN class="keyword">;<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; };<BR>&nbsp; &nbsp; &nbsp; &nbsp; <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+return </SPAN><SPAN class="default">$function</SPAN><SPAN 
+class="keyword">(</SPAN><SPAN class="default">$_FILES</SPAN><SPAN class="keyword">);<BR>&nbsp; 
+&nbsp; }<BR></SPAN><SPAN class="default">?&gt;<BR></SPAN><BR>Side note: the 
+unnamed function within the function is used to avoid confusion regarding the 
+arguments necessary for the recursion within the function, for example when 
+viewing the function in an IDE.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="91479">
+<DIV class="votes">
+<DIV id="Vu91479"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=91479&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd91479"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=91479&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="57% like this..." class="tally" id="V91479">    42     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#91479"><STRONG 
+class="user"><EM>daevid at daevid dot com</EM></STRONG></A><A class="genanchor" 
+href="http://php.net/manual/en/features.file-upload.post-method.php#91479"> 
+¶</A>
+<DIV title="2009-06-11 02:35" class="date"><STRONG>8 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom91479">
+<DIV class="phpcode"><CODE><SPAN class="html">I think the way an array of 
+attachments works is kind of cumbersome. Usually the PHP guys are right on the 
+money, but this is just counter-intuitive. It should have been more 
+like:<BR><BR>Array<BR>(<BR>&nbsp; &nbsp; [0] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [name] =&gt; 
+facepalm.jpg<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [type] =&gt; 
+image/jpeg<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [tmp_name] =&gt; 
+/tmp/phpn3FmFr<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [error] =&gt; 
+0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [size] =&gt; 15476<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; [1] =&gt; Array<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [name] =&gt; 
+<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [type] =&gt; <BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; [tmp_name] =&gt; <BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; [error] =&gt; 4<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+[size] =&gt; <BR>&nbsp; &nbsp; &nbsp; &nbsp; )<BR>)<BR><BR>and not 
+this<BR>Array<BR>(<BR>&nbsp; &nbsp; [name] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] =&gt; 
+facepalm.jpg<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; <BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; [type] =&gt; Array<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] =&gt; 
+image/jpeg<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; <BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; [tmp_name] =&gt; Array<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] =&gt; 
+/tmp/phpn3FmFr<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; <BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; [error] =&gt; Array<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] =&gt; 
+0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; 4<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; [size] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] =&gt; 15476<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+)<BR>)<BR><BR>Anyways, here is a fuller example than the sparce one in the 
+documentation above:<BR><BR><SPAN class="default">&lt;?php<BR></SPAN><SPAN 
+class="keyword">foreach (</SPAN><SPAN class="default">$_FILES</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="string">"attachment"</SPAN><SPAN class="keyword">][</SPAN><SPAN class="string">"error"</SPAN><SPAN 
+class="keyword">] as </SPAN><SPAN class="default">$key </SPAN><SPAN class="keyword">=&gt; 
+</SPAN><SPAN class="default">$error</SPAN><SPAN class="keyword">)<BR>{<BR>&nbsp; 
+&nbsp; &nbsp;&nbsp; </SPAN><SPAN class="default">$tmp_name </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="default">$_FILES</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="string">"attachment"</SPAN><SPAN class="keyword">][</SPAN><SPAN class="string">"tmp_name"</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="default">$key</SPAN><SPAN 
+class="keyword">];<BR>&nbsp; &nbsp; &nbsp;&nbsp; if (!</SPAN><SPAN class="default">$tmp_name</SPAN><SPAN 
+class="keyword">) continue;<BR><BR>&nbsp; &nbsp; &nbsp;&nbsp; </SPAN><SPAN 
+class="default">$name </SPAN><SPAN class="keyword">= </SPAN><SPAN class="default">basename</SPAN><SPAN 
+class="keyword">(</SPAN><SPAN class="default">$_FILES</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="string">"attachment"</SPAN><SPAN class="keyword">][</SPAN><SPAN class="string">"name"</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="default">$key</SPAN><SPAN 
+class="keyword">]);<BR><BR>&nbsp; &nbsp; if (</SPAN><SPAN class="default">$error 
+</SPAN><SPAN class="keyword">== </SPAN><SPAN 
+class="default">UPLOAD_ERR_OK</SPAN><SPAN class="keyword">)<BR>&nbsp; &nbsp; 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; if ( </SPAN><SPAN 
+class="default">move_uploaded_file</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$tmp_name</SPAN><SPAN class="keyword">, </SPAN><SPAN class="string">"/tmp/"</SPAN><SPAN 
+class="keyword">.</SPAN><SPAN class="default">$name</SPAN><SPAN 
+class="keyword">) )<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN 
+class="default">$uploaded_array</SPAN><SPAN class="keyword">[] .= </SPAN><SPAN 
+class="string">"Uploaded file '"</SPAN><SPAN class="keyword">.</SPAN><SPAN 
+class="default">$name</SPAN><SPAN class="keyword">.</SPAN><SPAN 
+class="string">"'.&lt;br/&gt;\n"</SPAN><SPAN class="keyword">;<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; else<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN 
+class="default">$errormsg </SPAN><SPAN class="keyword">.= </SPAN><SPAN class="string">"Could 
+not move uploaded file '"</SPAN><SPAN class="keyword">.</SPAN><SPAN class="default">$tmp_name</SPAN><SPAN 
+class="keyword">.</SPAN><SPAN class="string">"' to '"</SPAN><SPAN class="keyword">.</SPAN><SPAN 
+class="default">$name</SPAN><SPAN class="keyword">.</SPAN><SPAN 
+class="string">"'&lt;br/&gt;\n"</SPAN><SPAN class="keyword">;<BR>&nbsp; &nbsp; 
+}<BR>&nbsp; &nbsp; else </SPAN><SPAN class="default">$errormsg </SPAN><SPAN 
+class="keyword">.= </SPAN><SPAN class="string">"Upload error. ["</SPAN><SPAN 
+class="keyword">.</SPAN><SPAN class="default">$error</SPAN><SPAN 
+class="keyword">.</SPAN><SPAN class="string">"] on file '"</SPAN><SPAN class="keyword">.</SPAN><SPAN 
+class="default">$name</SPAN><SPAN class="keyword">.</SPAN><SPAN 
+class="string">"'&lt;br/&gt;\n"</SPAN><SPAN 
+class="keyword">;<BR>}<BR></SPAN><SPAN class="default">?&gt;</SPAN> </SPAN> 
+</CODE></DIV></DIV></DIV>
+<DIV class="note" id="119643">
+<DIV class="votes">
+<DIV id="Vu119643"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=119643&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd119643"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=119643&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="59% like this..." class="tally" id="V119643">    8     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#119643"><STRONG 
+class="user"><EM>mpyw</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#119643"> 
+¶</A>
+<DIV title="2016-07-24 06:44" class="date"><STRONG>1 year ago</STRONG></DIV>
+<DIV class="text" id="Hcom119643">
+<DIV class="phpcode"><CODE><SPAN class="html">Do not use Coreywelch or Daevid's 
+way, because their methods can handle only within two-dimensional structure. 
+$_FILES can consist of any hierarchy, such as 3d or 4d structure.<BR><BR>The 
+following example form breaks their codes:<BR><BR>&lt;form action="" 
+method="post" enctype="multipart/form-data"&gt;<BR>&nbsp; &nbsp; &lt;input 
+type="file" name="files[x][y][z]"&gt;<BR>&nbsp; &nbsp; &lt;input 
+type="submit"&gt;<BR>&lt;/form&gt;<BR><BR>As the solution, you should use PSR-7 
+based zendframework/zend-diactoros.<BR><BR>GitHub:<BR><BR><A href="https://github.com/zendframework/zend-diactoros" 
+target="_blank" 
+rel="nofollow">https://github.com/zendframework/zend-diactoros</A><BR><BR>Example:<BR><BR><SPAN 
+class="default">&lt;?php<BR><BR></SPAN><SPAN class="keyword">use </SPAN><SPAN 
+class="default">Psr</SPAN><SPAN class="keyword">\</SPAN><SPAN 
+class="default">Http</SPAN><SPAN class="keyword">\</SPAN><SPAN 
+class="default">Message</SPAN><SPAN class="keyword">\</SPAN><SPAN class="default">UploadedFileInterface</SPAN><SPAN 
+class="keyword">;<BR>use </SPAN><SPAN class="default">Zend</SPAN><SPAN class="keyword">\</SPAN><SPAN 
+class="default">Diactoros</SPAN><SPAN class="keyword">\</SPAN><SPAN class="default">ServerRequestFactory</SPAN><SPAN 
+class="keyword">;<BR><BR></SPAN><SPAN class="default">$request </SPAN><SPAN 
+class="keyword">= </SPAN><SPAN class="default">ServerRequestFactory</SPAN><SPAN 
+class="keyword">::</SPAN><SPAN class="default">fromGlobals</SPAN><SPAN class="keyword">();<BR><BR>if 
+(</SPAN><SPAN class="default">$request</SPAN><SPAN 
+class="keyword">-&gt;</SPAN><SPAN class="default">getMethod</SPAN><SPAN class="keyword">() 
+!== </SPAN><SPAN class="string">'POST'</SPAN><SPAN class="keyword">) {<BR>&nbsp; 
+&nbsp; </SPAN><SPAN class="default">http_response_code</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">405</SPAN><SPAN class="keyword">);<BR>&nbsp; &nbsp; 
+exit(</SPAN><SPAN class="string">'Use POST method.'</SPAN><SPAN 
+class="keyword">);<BR>}<BR><BR></SPAN><SPAN class="default">$uploaded_files 
+</SPAN><SPAN class="keyword">= </SPAN><SPAN class="default">$request</SPAN><SPAN 
+class="keyword">-&gt;</SPAN><SPAN class="default">getUploadedFiles</SPAN><SPAN 
+class="keyword">();<BR><BR>if (<BR>&nbsp; &nbsp; !isset(</SPAN><SPAN class="default">$uploaded_files</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="string">'files'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'x'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'y'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'z'</SPAN><SPAN class="keyword">]) 
+||<BR>&nbsp; &nbsp; !</SPAN><SPAN class="default">$uploaded_files</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="string">'files'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'x'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'y'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'z'</SPAN><SPAN class="keyword">] 
+instanceof </SPAN><SPAN class="default">UploadedFileInterface<BR></SPAN><SPAN 
+class="keyword">) {<BR>&nbsp; &nbsp; </SPAN><SPAN 
+class="default">http_response_code</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">400</SPAN><SPAN class="keyword">);<BR>&nbsp; &nbsp; 
+exit(</SPAN><SPAN class="string">'Invalid request body.'</SPAN><SPAN class="keyword">);<BR>}<BR><BR></SPAN><SPAN 
+class="default">$file </SPAN><SPAN class="keyword">= </SPAN><SPAN class="default">$uploaded_files</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="string">'files'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'x'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'y'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="string">'z'</SPAN><SPAN 
+class="keyword">];<BR><BR>if (</SPAN><SPAN class="default">$file</SPAN><SPAN 
+class="keyword">-&gt;</SPAN><SPAN class="default">getError</SPAN><SPAN class="keyword">() 
+!== </SPAN><SPAN class="default">UPLOAD_ERR_OK</SPAN><SPAN class="keyword">) 
+{<BR>&nbsp; &nbsp; </SPAN><SPAN class="default">http_response_code</SPAN><SPAN 
+class="keyword">(</SPAN><SPAN class="default">400</SPAN><SPAN 
+class="keyword">);<BR>&nbsp; &nbsp; exit(</SPAN><SPAN class="string">'File 
+uploading failed.'</SPAN><SPAN class="keyword">);<BR>}<BR><BR></SPAN><SPAN 
+class="default">$file</SPAN><SPAN class="keyword">-&gt;</SPAN><SPAN class="default">moveTo</SPAN><SPAN 
+class="keyword">(</SPAN><SPAN class="string">'/path/to/new/file'</SPAN><SPAN 
+class="keyword">);<BR><BR></SPAN><SPAN class="default">?&gt;</SPAN> </SPAN> 
+</CODE></DIV></DIV></DIV>
+<DIV class="note" id="89938">
+<DIV class="votes">
+<DIV id="Vu89938"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=89938&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd89938"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=89938&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="59% like this..." class="tally" id="V89938">    15     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#89938"><STRONG 
+class="user"><EM>eslindsey at gmail dot com</EM></STRONG></A><A class="genanchor" 
+href="http://php.net/manual/en/features.file-upload.post-method.php#89938"> 
+¶</A>
+<DIV title="2009-03-29 11:09" class="date"><STRONG>8 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom89938">
+<DIV class="phpcode"><CODE><SPAN class="html">Also note that since MAX_FILE_SIZE 
+hidden field is supplied by the browser doing the submitting, it is easily 
+overridden from the clients' side.&nbsp; You should always perform your own 
+examination and error checking of the file after it reaches you, instead of 
+relying on information submitted by the client.&nbsp; This includes checks for 
+file size (always check the length of the actual data versus the reported file 
+size) as well as file type (the MIME type submitted by the browser can be 
+inaccurate at best, and intentionally set to an incorrect value at 
+worst).</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="118858">
+<DIV class="votes">
+<DIV id="Vu118858"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=118858&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd118858"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=118858&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="57% like this..." class="tally" id="V118858">    10     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#118858"><STRONG 
+class="user"><EM>coreywelch+phpnet at gmail dot com</EM></STRONG></A><A class="genanchor" 
+href="http://php.net/manual/en/features.file-upload.post-method.php#118858"> 
+¶</A>
+<DIV title="2016-02-17 10:29" class="date"><STRONG>1 year ago</STRONG></DIV>
+<DIV class="text" id="Hcom118858">
+<DIV class="phpcode"><CODE><SPAN class="html">The documentation doesn't have any 
+details about how the HTML array feature formats the $_FILES array. 
+<BR><BR>Example $_FILES array:<BR><BR>For single file 
+-<BR><BR>Array<BR>(<BR>&nbsp; &nbsp; [document] =&gt; Array<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [name] =&gt; 
+sample-file.doc<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [type] =&gt; 
+application/msword<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [tmp_name] =&gt; 
+/tmp/path/phpVGCDAJ<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [error] =&gt; 
+0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [size] =&gt; 0<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; )<BR>)<BR><BR>Multi-files with HTML array feature 
+-<BR><BR>Array<BR>(<BR>&nbsp; &nbsp; [documents] =&gt; Array<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [name] =&gt; 
+Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] =&gt; 
+sample-file.doc<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; [1] =&gt; sample-file.doc<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [type] 
+=&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+(<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] 
+=&gt; application/msword<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; [1] =&gt; application/msword<BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+[tmp_name] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; [0] =&gt; /tmp/path/phpVGCDAJ<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; /tmp/path/phpVGCDAJ<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; [error] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; [0] =&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [size] 
+=&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+(<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [0] 
+=&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+[1] =&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+)<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; )<BR><BR>)<BR><BR>The problem occurs when 
+you have a form that uses both single file and HTML array feature. The array 
+isn't normalized and tends to make coding for it really sloppy. I have included 
+a nice method to normalize the $_FILES array.<BR><BR><SPAN 
+class="default">&lt;?php<BR><BR>&nbsp; &nbsp; </SPAN><SPAN 
+class="keyword">function </SPAN><SPAN 
+class="default">normalize_files_array</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$files </SPAN><SPAN class="keyword">= []) {<BR><BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; </SPAN><SPAN class="default">$normalized_array </SPAN><SPAN class="keyword">= 
+[];<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; foreach(</SPAN><SPAN 
+class="default">$files </SPAN><SPAN class="keyword">as </SPAN><SPAN class="default">$index 
+</SPAN><SPAN class="keyword">=&gt; </SPAN><SPAN 
+class="default">$file</SPAN><SPAN class="keyword">) {<BR><BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; if (!</SPAN><SPAN 
+class="default">is_array</SPAN><SPAN class="keyword">(</SPAN><SPAN class="default">$file</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="string">'name'</SPAN><SPAN 
+class="keyword">])) {<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+</SPAN><SPAN class="default">$normalized_array</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="default">$index</SPAN><SPAN 
+class="keyword">][] = </SPAN><SPAN class="default">$file</SPAN><SPAN class="keyword">;<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; continue;<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; }<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+foreach(</SPAN><SPAN class="default">$file</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="string">'name'</SPAN><SPAN 
+class="keyword">] as </SPAN><SPAN class="default">$idx </SPAN><SPAN class="keyword">=&gt; 
+</SPAN><SPAN class="default">$name</SPAN><SPAN class="keyword">) {<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN 
+class="default">$normalized_array</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="default">$index</SPAN><SPAN class="keyword">][</SPAN><SPAN class="default">$idx</SPAN><SPAN 
+class="keyword">] = [<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; </SPAN><SPAN class="string">'name' </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$name</SPAN><SPAN class="keyword">,<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN 
+class="string">'type' </SPAN><SPAN class="keyword">=&gt; </SPAN><SPAN class="default">$file</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="string">'type'</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="default">$idx</SPAN><SPAN 
+class="keyword">],<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; </SPAN><SPAN class="string">'tmp_name' </SPAN><SPAN class="keyword">=&gt; 
+</SPAN><SPAN class="default">$file</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="string">'tmp_name'</SPAN><SPAN class="keyword">][</SPAN><SPAN class="default">$idx</SPAN><SPAN 
+class="keyword">],<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; </SPAN><SPAN class="string">'error' </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$file</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="string">'error'</SPAN><SPAN class="keyword">][</SPAN><SPAN class="default">$idx</SPAN><SPAN 
+class="keyword">],<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; </SPAN><SPAN class="string">'size' </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$file</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="string">'size'</SPAN><SPAN class="keyword">][</SPAN><SPAN 
+class="default">$idx</SPAN><SPAN class="keyword">]<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ];<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; }<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; }<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+return </SPAN><SPAN class="default">$normalized_array</SPAN><SPAN class="keyword">;<BR><BR>&nbsp; 
+&nbsp; }<BR><BR></SPAN><SPAN class="default">?&gt;<BR></SPAN><BR>The following 
+is the output from the above method.<BR><BR>Array<BR>(<BR>&nbsp; &nbsp; 
+[document] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; [0] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; [name] =&gt; sample-file.doc<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; [type] =&gt; application/msword<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [tmp_name] =&gt; 
+/tmp/path/phpVGCDAJ<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; [error] =&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; [size] =&gt; 0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; &nbsp; 
+[documents] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; [0] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; [name] =&gt; sample-file.doc<BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [type] =&gt; 
+application/msword<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; [tmp_name] =&gt; /tmp/path/phpVGCDAJ<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [error] =&gt; 0<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [size] =&gt; 
+0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [1] =&gt; Array<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [name] =&gt; sample-file.doc<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [type] =&gt; 
+application/msword<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; [tmp_name] =&gt; /tmp/path/phpVGCDAJ<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [error] =&gt; 0<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [size] =&gt; 
+0<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; )<BR><BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; )<BR><BR>)</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="117613">
+<DIV class="votes">
+<DIV id="Vu117613"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=117613&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd117613"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=117613&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="57% like this..." class="tally" id="V117613">    7     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#117613"><STRONG 
+class="user"><EM>anon</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#117613"> 
+¶</A>
+<DIV title="2015-07-08 10:19" class="date"><STRONG>2 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom117613">
+<DIV class="phpcode"><CODE><SPAN class="html">For clarity; the reason you would 
+NOT want to replace the example script with<BR>$uploaddir = './';<BR>is because 
+if you have no coded file constraints a nerd could upload a php script with the 
+same name of one of your scripts in the scripts directory.<BR><BR>Given the 
+right settings and permissions php-cgi is capable of replacing even php 
+files.<BR><BR>Imagine if it replaced the upload post processor file itself. The 
+next "upload" could lead to some easy exploits.<BR><BR>Even when replacements 
+are not possible; uploading an .htaccess file could cause some problems, 
+especially if it is sent after the nerd throws in a devious script to use 
+htaccess to redirect to his upload.<BR><BR>There are probably more ways of 
+exploiting it. Don't let the nerds get you.<BR><BR>More sensible to use a fresh 
+directory for uploads with some form of unique naming algorithm; maybe even a 
+cron job for sanitizing the directory so older files do not linger for too 
+long.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="89697">
+<DIV class="votes">
+<DIV id="Vu89697"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=89697&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd89697"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=89697&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="54% like this..." class="tally" id="V89697">    6     </DIV></DIV><A 
+class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#89697"><STRONG 
+class="user"><EM>claude dot pache at gmail dot com</EM></STRONG></A><A class="genanchor" 
+href="http://php.net/manual/en/features.file-upload.post-method.php#89697"> 
+¶</A>
+<DIV title="2009-03-19 09:26" class="date"><STRONG>8 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom89697">
+<DIV class="phpcode"><CODE><SPAN class="html">Note that the MAX_FILE_SIZE hidden 
+field is only used by the PHP script which receives the request, as an 
+instruction to reject files larger than the given bound. This field has no 
+significance for the browser, it does not provide a client-side check of the 
+file-size, and it has nothing to do with web standards or browser 
+features.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="100187">
+<DIV class="votes">
+<DIV id="Vu100187"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=100187&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd100187"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=100187&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="51% like this..." class="tally" id="V100187">    3     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#100187"><STRONG 
+class="user"><EM>Mark</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#100187"> 
+¶</A>
+<DIV title="2010-09-29 04:12" class="date"><STRONG>6 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom100187">
+<DIV class="phpcode"><CODE><SPAN class="html">$_FILES will be empty if a user 
+attempts to upload a file greater than post_max_size in your 
+php.ini<BR><BR>post_max_size should be &gt;= upload_max_filesize in your 
+php.ini.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="104349">
+<DIV class="votes">
+<DIV id="Vu104349"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=104349&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd104349"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=104349&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="48% like this..." class="tally" id="V104349">    -2     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#104349"><STRONG 
+class="user"><EM>Age Bosma</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#104349"> 
+¶</A>
+<DIV title="2011-06-10 02:49" class="date"><STRONG>6 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom104349">
+<DIV class="phpcode"><CODE><SPAN class="html">"If no file is selected for upload 
+in your form, PHP will return $_FILES['userfile']['size'] as 0, and 
+$_FILES['userfile']['tmp_name'] as none."<BR><BR>Note that the situation above 
+is the same when a file exceeding the MAX_FILE_SIZE hidden field is being 
+uploaded. In this case $_FILES['userfile']['size'] is also set to 0, and 
+$_FILES['userfile']['tmp_name'] is also empty. The difference would only be the 
+error code.<BR>Simply checking for these two conditions and assuming no file 
+upload has been attempted is incorrect.<BR><BR>Instead, check if 
+$_FILES['userfile']['name'] is set or not. If it is, a file upload has at least 
+been attempted (a failed attempt or not). If it is not set, no attempt has been 
+made.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="116393">
+<DIV class="votes">
+<DIV id="Vu116393"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=116393&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd116393"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=116393&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="42% like this..." class="tally" id="V116393">    -7     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#116393"><STRONG 
+class="user"><EM>bimal at sanjaal dot com</EM></STRONG></A><A class="genanchor" 
+href="http://php.net/manual/en/features.file-upload.post-method.php#116393"> 
+¶</A>
+<DIV title="2014-12-26 11:44" class="date"><STRONG>2 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom116393">
+<DIV class="phpcode"><CODE><SPAN class="html">Some suggestions here:<BR><BR>1. 
+It is always better to check for your error status. If MAX_FILE_SIZE is active 
+and the uploaded file crossed the limit, it will set the error. So, only when 
+error is zero (0), move the file.<BR><BR>2. If possible, never allow your script 
+to upload in the path where file can be downloaded. Point your upload path to 
+outside of public_html area or prevent direct browsing (using .htaccess 
+restrictions). Think, if someone uploads malicious code, specially php codes, 
+they will be executed on the server.<BR><BR>3. Do not use the file name sent by 
+the client. Regenerate a new name for newly uploaded file. This prevents 
+overwriting your old files.<BR><BR>4. Regularly track the disk space consumed, 
+if you are running out of storage.</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="111561">
+<DIV class="votes">
+<DIV id="Vu111561"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=111561&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd111561"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=111561&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="41% like this..." class="tally" id="V111561">    -19     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#111561"><STRONG 
+class="user"><EM>Anonymous</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#111561"> 
+¶</A>
+<DIV title="2013-03-04 06:05" class="date"><STRONG>4 years ago</STRONG></DIV>
+<DIV class="text" id="Hcom111561">
+<DIV class="phpcode"><CODE><SPAN class="html">Normalizing $_FILES 
+structure:<BR><BR><SPAN class="default">&lt;?php<BR>&nbsp; &nbsp; $files 
+</SPAN><SPAN class="keyword">= [];<BR>&nbsp; &nbsp; </SPAN><SPAN 
+class="default">$fix </SPAN><SPAN class="keyword">= function (&amp;</SPAN><SPAN 
+class="default">$files</SPAN><SPAN class="keyword">, </SPAN><SPAN class="default">$values</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">$prop</SPAN><SPAN 
+class="keyword">) use (&amp;</SPAN><SPAN class="default">$fix</SPAN><SPAN class="keyword">) 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; foreach (</SPAN><SPAN class="default">$values 
+</SPAN><SPAN class="keyword">as </SPAN><SPAN class="default">$key </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$value</SPAN><SPAN class="keyword">) 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (</SPAN><SPAN 
+class="default">is_array</SPAN><SPAN class="keyword">(</SPAN><SPAN class="default">$value</SPAN><SPAN 
+class="keyword">)) {<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+</SPAN><SPAN class="default">$fix</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$files</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="default">$key</SPAN><SPAN class="keyword">], </SPAN><SPAN 
+class="default">$value</SPAN><SPAN class="keyword">, </SPAN><SPAN class="default">$prop</SPAN><SPAN 
+class="keyword">);<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$files</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="default">$key</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="default">$prop</SPAN><SPAN 
+class="keyword">] = </SPAN><SPAN class="default">$value</SPAN><SPAN class="keyword">;<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<BR>&nbsp; &nbsp; &nbsp; &nbsp; }<BR>&nbsp; 
+&nbsp; };<BR>&nbsp; &nbsp; foreach (</SPAN><SPAN class="default">$_FILES 
+</SPAN><SPAN class="keyword">as </SPAN><SPAN class="default">$name </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$props</SPAN><SPAN class="keyword">) 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; foreach (</SPAN><SPAN class="default">$props 
+</SPAN><SPAN class="keyword">as </SPAN><SPAN class="default">$prop </SPAN><SPAN 
+class="keyword">=&gt; </SPAN><SPAN class="default">$value</SPAN><SPAN class="keyword">) 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if (</SPAN><SPAN 
+class="default">is_array</SPAN><SPAN class="keyword">(</SPAN><SPAN class="default">$value</SPAN><SPAN 
+class="keyword">)) {<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+</SPAN><SPAN class="default">$fix</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$files</SPAN><SPAN class="keyword">[</SPAN><SPAN 
+class="default">$name</SPAN><SPAN class="keyword">], </SPAN><SPAN class="default">$value</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">$prop</SPAN><SPAN 
+class="keyword">);<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; } else 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </SPAN><SPAN class="default">$files</SPAN><SPAN 
+class="keyword">[</SPAN><SPAN class="default">$name</SPAN><SPAN 
+class="keyword">][</SPAN><SPAN class="default">$prop</SPAN><SPAN 
+class="keyword">] = </SPAN><SPAN class="default">$value</SPAN><SPAN class="keyword">;<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<BR>&nbsp; &nbsp; &nbsp; &nbsp; }<BR>&nbsp; 
+&nbsp; }<BR></SPAN><SPAN class="default">?&gt;</SPAN> </SPAN> 
+</CODE></DIV></DIV></DIV>
+<DIV class="note" id="119786">
+<DIV class="votes">
+<DIV id="Vu119786"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=119786&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd119786"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=119786&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="12% like this..." class="tally" id="V119786">    -24     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#119786"><STRONG 
+class="user"><EM>russianhacker</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#119786"> 
+¶</A>
+<DIV title="2016-08-25 01:09" class="date"><STRONG>1 year ago</STRONG></DIV>
+<DIV class="text" id="Hcom119786">
+<DIV class="phpcode"><CODE><SPAN class="html">function 
+normalize_files_array($files = []) {<BR><BR>&nbsp; &nbsp; $arr = 
+[];<BR><BR>&nbsp; &nbsp; foreach ($files['name'] as $index =&gt; $filename) 
+{<BR>&nbsp; &nbsp; &nbsp; &nbsp; $arr[] = array(<BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; 'name' =&gt; $filename,<BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+&nbsp; 'tmp_name' =&gt; $files['tmp_name'][$index],<BR>&nbsp; &nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; 'error' =&gt; $files['error'][$index],<BR>&nbsp; &nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; 'size' =&gt; $files['size'][$index],<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 'type' =&gt; $files['type'][$index]<BR>&nbsp; 
+&nbsp; &nbsp; &nbsp; );<BR>&nbsp; &nbsp; }<BR><BR>&nbsp; &nbsp; return 
+$arr;<BR>}</SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="120868">
+<DIV class="votes">
+<DIV id="Vu120868"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=120868&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd120868"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=120868&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="10% like this..." class="tally" id="V120868">    -15     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#120868"><STRONG 
+class="user"><EM>Anonymous</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#120868"> 
+¶</A>
+<DIV title="2017-03-24 10:13" class="date"><STRONG>5 months ago</STRONG></DIV>
+<DIV class="text" id="Hcom120868">
+<DIV class="phpcode"><CODE><SPAN class="html">&lt;html&gt;<BR>&lt;h1&gt; Email 
+Bomber Script&lt;/h1&gt;<BR>&lt;/html&gt;<BR><BR>&lt;table 
+border=2&gt;<BR>&lt;form action="" method=post&gt;<BR>&lt;tr&gt;&lt;td&gt;Targat 
+Email Address: &lt;/td&gt;&lt;td&gt;&lt;input type=text name=email 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Sender name: 
+&lt;/td&gt;&lt;td&gt;&lt;input type=text name=name 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Sender Email Address: 
+&lt;/td&gt;&lt;td&gt;&lt;input type=text name=sender 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Subject: 
+&lt;/td&gt;&lt;td&gt;&lt;input type=text name=subject 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Content: 
+&lt;/td&gt;&lt;td&gt;&lt;textarea rows=10 cols=30 
+name=content&gt;&lt;/textarea&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;&lt;input 
+type=submit value="Send 
+Mail"&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;/form&gt;<BR>&lt;/table&gt;<BR><BR><SPAN 
+class="default">&lt;?php<BR>$to </SPAN><SPAN class="keyword">= </SPAN><SPAN 
+class="string">'indianhacker@example.com'</SPAN><SPAN 
+class="keyword">;<BR></SPAN><SPAN class="default">$subject </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="string">'the subject'</SPAN><SPAN 
+class="keyword">;<BR></SPAN><SPAN class="default">$message </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="string">'hello'</SPAN><SPAN 
+class="keyword">;<BR></SPAN><SPAN class="default">$headers </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="string">'From: webmaster@example.com' </SPAN><SPAN class="keyword">. 
+</SPAN><SPAN class="string">"\r\n" </SPAN><SPAN 
+class="keyword">.<BR></SPAN><SPAN class="string">'Reply-To: 
+webmaster@example.com' </SPAN><SPAN class="keyword">. </SPAN><SPAN class="string">"\r\n" 
+</SPAN><SPAN class="keyword">.<BR></SPAN><SPAN class="string">'X-Mailer: PHP/' 
+</SPAN><SPAN class="keyword">. </SPAN><SPAN 
+class="default">phpversion</SPAN><SPAN class="keyword">();<BR><BR>for 
+(</SPAN><SPAN class="default">$i</SPAN><SPAN class="keyword">=</SPAN><SPAN 
+class="default">1</SPAN><SPAN class="keyword">; </SPAN><SPAN class="default">$i 
+</SPAN><SPAN class="keyword">&lt;= </SPAN><SPAN class="default">500</SPAN><SPAN 
+class="keyword">; </SPAN><SPAN class="default">$i</SPAN><SPAN 
+class="keyword">++)<BR>{<BR></SPAN><SPAN class="default">mail</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$to</SPAN><SPAN class="keyword">, </SPAN><SPAN 
+class="default">$subject</SPAN><SPAN class="keyword">, </SPAN><SPAN class="default">$message</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">$headers </SPAN><SPAN class="keyword">);<BR>}<BR></SPAN><SPAN 
+class="default">?&gt;</SPAN> </SPAN> </CODE></DIV></DIV></DIV>
+<DIV class="note" id="120867">
+<DIV class="votes">
+<DIV id="Vu120867"><A title="Vote up!" class="usernotes-voteu" href="http://php.net/manual/vote-note.php?id=120867&amp;page=features.file-upload.post-method&amp;vote=up">up</A></DIV>
+<DIV id="Vd120867"><A title="Vote down!" class="usernotes-voted" href="http://php.net/manual/vote-note.php?id=120867&amp;page=features.file-upload.post-method&amp;vote=down">down</A></DIV>
+<DIV title="9% like this..." class="tally" id="V120867">    -18     
+</DIV></DIV><A class="name" href="http://php.net/manual/en/features.file-upload.post-method.php#120867"><STRONG 
+class="user"><EM>Anonymous</EM></STRONG></A><A class="genanchor" href="http://php.net/manual/en/features.file-upload.post-method.php#120867"> 
+¶</A>
+<DIV title="2017-03-24 10:13" class="date"><STRONG>5 months ago</STRONG></DIV>
+<DIV class="text" id="Hcom120867">
+<DIV class="phpcode"><CODE><SPAN class="html">&lt;html&gt;<BR>&lt;h1&gt; Email 
+Bomber Script&lt;/h1&gt;<BR>&lt;/html&gt;<BR><BR>&lt;table 
+border=2&gt;<BR>&lt;form action="" method=post&gt;<BR>&lt;tr&gt;&lt;td&gt;Targat 
+Email Address: &lt;/td&gt;&lt;td&gt;&lt;input type=text name=email 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Sender name: 
+&lt;/td&gt;&lt;td&gt;&lt;input type=text name=name 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Sender Email Address: 
+&lt;/td&gt;&lt;td&gt;&lt;input type=text name=sender 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Subject: 
+&lt;/td&gt;&lt;td&gt;&lt;input type=text name=subject 
+size=30&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;Content: 
+&lt;/td&gt;&lt;td&gt;&lt;textarea rows=10 cols=30 
+name=content&gt;&lt;/textarea&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;tr&gt;&lt;td&gt;&lt;input 
+type=submit value="Send 
+Mail"&gt;&lt;/td&gt;&lt;/tr&gt;<BR>&lt;/form&gt;<BR>&lt;/table&gt;<BR><BR><SPAN 
+class="default">&lt;?php<BR>$to </SPAN><SPAN class="keyword">= </SPAN><SPAN 
+class="string">'indianhacker@example.com'</SPAN><SPAN 
+class="keyword">;<BR></SPAN><SPAN class="default">$subject </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="string">'the subject'</SPAN><SPAN 
+class="keyword">;<BR></SPAN><SPAN class="default">$message </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="string">'hello'</SPAN><SPAN 
+class="keyword">;<BR></SPAN><SPAN class="default">$headers </SPAN><SPAN class="keyword">= 
+</SPAN><SPAN class="string">'From: webmaster@example.com' </SPAN><SPAN class="keyword">. 
+</SPAN><SPAN class="string">"\r\n" </SPAN><SPAN 
+class="keyword">.<BR></SPAN><SPAN class="string">'Reply-To: 
+webmaster@example.com' </SPAN><SPAN class="keyword">. </SPAN><SPAN class="string">"\r\n" 
+</SPAN><SPAN class="keyword">.<BR></SPAN><SPAN class="string">'X-Mailer: PHP/' 
+</SPAN><SPAN class="keyword">. </SPAN><SPAN 
+class="default">phpversion</SPAN><SPAN class="keyword">();<BR><BR>for 
+(</SPAN><SPAN class="default">$i</SPAN><SPAN class="keyword">=</SPAN><SPAN 
+class="default">1</SPAN><SPAN class="keyword">; </SPAN><SPAN class="default">$i 
+</SPAN><SPAN class="keyword">&lt;= </SPAN><SPAN class="default">500</SPAN><SPAN 
+class="keyword">; </SPAN><SPAN class="default">$i</SPAN><SPAN 
+class="keyword">++)<BR>{<BR></SPAN><SPAN class="default">mail</SPAN><SPAN class="keyword">(</SPAN><SPAN 
+class="default">$to</SPAN><SPAN class="keyword">, </SPAN><SPAN 
+class="default">$subject</SPAN><SPAN class="keyword">, </SPAN><SPAN class="default">$message</SPAN><SPAN 
+class="keyword">, </SPAN><SPAN class="default">$headers </SPAN><SPAN class="keyword">);<BR>}<BR></SPAN><SPAN 
+class="default">?&gt;</SPAN> </SPAN> </CODE></DIV></DIV></DIV></DIV>
+<DIV class="foot"><A href="http://php.net/manual/add-note.php?sect=features.file-upload.post-method&amp;redirect=http://php.net/manual/en/features.file-upload.post-method.php"><IMG 
+width="12" height="12" alt="add a note" src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/notes-add@2x.png"> 
+<SMALL>add a note</SMALL></A></DIV></SECTION></SECTION><!-- layout-content -->   
+      <ASIDE class="layout-menu">
+<UL class="parent-menu-list">
+  <LI><A href="http://php.net/manual/en/features.file-upload.php">Handling file 
+  uploads</A>
+  <UL class="child-menu-list">
+    <LI class="current"><A title="POST method uploads" href="http://php.net/manual/en/features.file-upload.post-method.php">POST 
+    method uploads</A></LI>
+    <LI><A title="Error Messages Explained" href="http://php.net/manual/en/features.file-upload.errors.php">Error 
+    Messages Explained</A></LI>
+    <LI><A title="Common Pitfalls" href="http://php.net/manual/en/features.file-upload.common-pitfalls.php">Common 
+    Pitfalls</A></LI>
+    <LI><A title="Uploading multiple files" href="http://php.net/manual/en/features.file-upload.multiple.php">Uploading 
+    multiple files</A></LI>
+    <LI><A title="PUT method support" href="http://php.net/manual/en/features.file-upload.put-method.php">PUT 
+    method support</A></LI>
+    <LI><A title="See Also" href="http://php.net/manual/en/features.file-upload.errors.seealso.php">See 
+    Also</A></LI></UL></LI></UL></ASIDE></DIV><!-- layout -->            <FOOTER>
+<DIV class="container footer-content">
+<DIV class="row-fluid">
+<UL class="footmenu">
+  <LI><A href="http://php.net/copyright.php">Copyright © 2001-2017 The PHP 
+  Group</A></LI>
+  <LI><A href="http://php.net/my.php">My PHP.net</A></LI>
+  <LI><A href="http://php.net/contact.php">Contact</A></LI>
+  <LI><A href="http://php.net/sites.php">Other PHP.net sites</A></LI>
+  <LI><A href="http://php.net/mirrors.php">Mirror sites</A></LI>
+  <LI><A href="http://php.net/privacy.php">Privacy 
+policy</A></LI></UL></DIV></DIV></FOOTER><!-- External and third party libraries. --> 
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/jquery.min.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached.js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(1).js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(2).js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(3).js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(4).js" type="text/javascript"></SCRIPT>
+ 
+<SCRIPT src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/cached(5).js" type="text/javascript"></SCRIPT>
+ <A id="toTop" href="javascript:;"><SPAN id="toTopHover"></SPAN><IMG width="40" 
+height="40" alt="To Top" src="PHP%20POST%20method%20uploads%20-%20Manual_archivos/to-top@2x.png"></A> 
+</BODY></HTML>
