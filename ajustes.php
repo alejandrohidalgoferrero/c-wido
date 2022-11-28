@@ -84,10 +84,15 @@
                             </div>
                         </form>
                     </div>         
+                    <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                        <form  class="text-center" style="font-style: italic; font-weight: bold;" action="hoja_intervencion_menu.php" method="POST" enctype="multipart/form-data">
+                            <div >
+                            <input type="submit" name="submit" value="Prueba Hoja Intervencion" class="btn btn-secondary align-middle btn-lg">
+                            </div>
+                        </form>
+                    </div>         
                 </div>
             </div>
-            
-           
         </div> 
         <!-- <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
                         <form  class="text-center" style="font-style: italic; font-weight: bold;" action="ajustes actualizar piezas.php" method="POST" enctype="multipart/form-data">

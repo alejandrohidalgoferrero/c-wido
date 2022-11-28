@@ -85,49 +85,49 @@ echo'
         <ul class="nav navbar-nav mr-auto mt-lg-0">';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-                <a class="nav-link '.$color_texto[1].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/mantenimiento.php">MANTENIMIENTO</a>
+                <a class="nav-link '.$color_texto[1].' '.$bloqueo_inicio.'"   href="mantenimiento.php">MANTENIMIENTO</a>
             </li>
             ';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-                <a class="nav-link '.$color_texto[2].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/libro_relevos_fabricacion_menu.php">Libro de Relevos</a>
+                <a class="nav-link '.$color_texto[2].' '.$bloqueo_inicio.'"   href="libro_relevos_fabricacion_menu.php">Libro de Relevos</a>
             </li>
             ';
             // echo'
             // <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-            //     <a class="nav-link '.$color_texto[3].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/app elementos elevacion.php">App elementos elevación</a>
+            //     <a class="nav-link '.$color_texto[3].' '.$bloqueo_inicio.'"   href="app elementos elevacion.php">App elementos elevación</a>
             // </li>
             // ';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-                <a class="nav-link '.$color_texto[4].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/factoría4.0.php">Factoría 4.0</a>
+                <a class="nav-link '.$color_texto[4].' '.$bloqueo_inicio.'"   href="factoría4.0.php">Factoría 4.0</a>
             </li>
             ';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-                <a class="nav-link '.$color_texto[5].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/cambiomolde.php">Cambio de molde</a>
+                <a class="nav-link '.$color_texto[5].' '.$bloqueo_inicio.'"   href="cambiomolde.php">Cambio de molde</a>
             </li>
             ';
 
             // echo'
             // <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-            //     <a class="nav-link '.$color_texto[6].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/fos.php">FOS</a>
+            //     <a class="nav-link '.$color_texto[6].' '.$bloqueo_inicio.'"   href="fos.php">FOS</a>
             // </li>
             // ';
 
             // echo'
             // <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-            //     <a class="nav-link '.$color_texto[7].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/HxH INY.php">HxH INY</a>
+            //     <a class="nav-link '.$color_texto[7].' '.$bloqueo_inicio.'"   href="HxH INY.php">HxH INY</a>
             // </li>
             // ';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-                <a class="nav-link '.$color_texto[8].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/hornos.php">HORNOS</a>
+                <a class="nav-link '.$color_texto[8].' '.$bloqueo_inicio.'"   href="hornos.php">HORNOS</a>
             </li>
             ';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
-                <a class="nav-link '.$color_texto[9].' '.$bloqueo_inicio.'"   href="http://10.217.144.35/C-WIDO/checks arranque parada.php">Checks arranque parada</a>
+                <a class="nav-link '.$color_texto[9].' '.$bloqueo_inicio.'"   href="checks arranque parada.php">Checks arranque parada</a>
             </li>
             ';
             echo'
@@ -135,8 +135,8 @@ echo'
                 <div class="dropdown" >
                     <a class="nav-link '.$color_texto[10].' dropdown-toggle '.$bloqueo_inicio.'"    data-toggle="dropdown" href="">Calidad</a>
                     <ul class="dropdown-menu">
-                        <a class="dropdown-item '.$color_subtexto[1].'"  href="http://10.217.144.35/C-WIDO/sala_3d_menu.php">Sala 3D</a>  
-                        <a class="dropdown-item '.$color_subtexto[2].'"  href="http://10.217.144.35/C-WIDO/comunicacion_jus_menu.php">Comunicación JUs</a>  
+                        <a class="dropdown-item '.$color_subtexto[1].'"  href="sala_3d_menu.php">Sala 3D</a>  
+                        <a class="dropdown-item '.$color_subtexto[2].'"  href="comunicacion_jus_menu.php">Comunicación JUs</a>  
                     </ul>
                 </div>
             </li>
@@ -146,7 +146,7 @@ echo'
     </div>';
         
 
-        if($bloqueado==""){echo'<div border rounded><a class="navbar-nav justify-content-end" href="http://'.$ipserver.'/C-WIDO/ajustes.php"><img src="imagenes/ajustes.png"></a></div>';}
+        if($bloqueado==""){echo'<div border rounded><a class="navbar-nav justify-content-end" href="ajustes.php"><img src="imagenes/ajustes.png"></a></div>';}
 
         echo'
             
