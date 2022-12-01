@@ -16,7 +16,7 @@
 <body style="background-color: #D8F5CA" class="text-muted">
 <!-- Nav desde aqui -->
 <?php
-     $titulo_pagina= "";
+     $titulo_pagina= "Hoja de intervención";
      include("conexion.php");
     $sql="UPDATE tabla_navegador SET uso = '0'";
     $consulta = mysqli_query($conexion, $sql);
@@ -300,12 +300,7 @@
                             <strong>1º</strong> 
                         </div>
                         <div class="col d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">
-                            <textarea name="descripcion_problema_1" form="form_datos" id="descripcion_problema_1" placeholder="Descripción del problema" class="form-control" rows="1" maxlength="500" onkeyup="mostar_descripcion_problema_siguiente_1(),btn_guardar_rojo()"><?php echo $descripcion_problema?></textarea>
-                            <script>
-                                function mostar_descripcion_problema_siguiente_1() {
-                                    document.getElementById("div_descripcion_problema_2").style.display=null;
-                                }
-                            </script>
+                            <textarea name="descripcion_problema_1" form="form_datos" id="descripcion_problema_1" placeholder="Descripción del problema" class="form-control" rows="1" maxlength="500" onkeydown="mostar_descripcion_problema_siguiente(1)"><?php echo $descripcion_problema?></textarea>
                         </div>
                         <div class="col-auto d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">
                             <input type="text" placeholder="Conductor" form="form_datos" name="conductor_1" id="conductor_1" class="form-control" onkeyup="btn_guardar_rojo()" value="<?php echo $conductor?>">
@@ -350,7 +345,7 @@
                                                     <strong>'.$i.'º</strong>
                                                 </div>
                                                 <div class="col d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">
-                                                    <textarea form="form_datos" name="descripcion_problema_'.$i.'" id="descripcion_problema_'.$i.'" placeholder="Descripción del problema" onkeyup="btn_guardar_rojo()" class="form-control" rows="1" maxlength="500" onkeyup="mostar_descripcion_problema_siguiente_'.$i.'(),btn_guardar_rojo()">'.$descripcion_problema.'</textarea>
+                                                    <textarea form="form_datos" name="descripcion_problema_'.$i.'" id="descripcion_problema_'.$i.'" placeholder="Descripción del problema" onkeyup="btn_guardar_rojo()" class="form-control" rows="1" maxlength="500" onkeydown="mostar_descripcion_problema_siguiente('.$i.')">'.$descripcion_problema.'</textarea>
                                                 </div>
                                                 <div class="col-auto d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">
                                                     <input type="text" form="form_datos" placeholder="Conductor" name="conductor_'.$i.'" id="conductor_'.$i.'" class="form-control" onkeyup="btn_guardar_rojo()" value="'.$conductor.'">
@@ -368,15 +363,6 @@
                                             </div>  
                                         </div>
                                     ';
-                                        if($i<=15){
-                                            echo'
-                                            <script>
-                                                function mostar_descripcion_problema_siguiente_'.$i.'() {
-                                                    document.getElementById("div_descripcion_problema_'.$i_siguiente.'").style.display=null;
-                                                }
-                                            </script>
-                                            ';
-                                        }
                             }      
                         ?>
                 </div>
@@ -578,6 +564,16 @@
 <script>
 
 var id_hoja_intervencion = <?php echo $id_hoja_intervencion?>;
+
+function mostar_descripcion_problema_siguiente(fila) {
+    btn_guardar_rojo();
+    var fila_siguiente=fila+1;
+    if(fila<=14)
+    {
+        document.getElementById("div_descripcion_problema_"+fila_siguiente).style.display="";
+    }
+}
+
 function guardar_datos()
     {
         btn_guardar_verde();

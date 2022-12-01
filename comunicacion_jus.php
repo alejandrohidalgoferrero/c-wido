@@ -32,10 +32,7 @@
      <title><?php echo $titulo_pagina?></title>
 
     <?php 
-    $ip="LOCALHOST";
-
     include('nav.php');
-    session_start();
     $id_com_jus=$_SESSION['id_com_jus'];
     ?>
 
@@ -115,7 +112,7 @@
         <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
             <div class="container-fluid justify-content-center mt-2 mb-2 mr-1 ml-1 pt-1 pb-1 pl-1 pr-1 border border-dark rounded text-dark justify-content-center text-center" style="background-color:#E4E4E4;">
                 <div class="row d-flex  mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">                    
-                    <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
+                    <!-- <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
                         <div class="row align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center ">    
                             <h4><strong>INCIDENCIAS REVISADAS:</strong></h4>
                         </div>
@@ -220,7 +217,7 @@
                             }
 
                         ?>
-                    </div>
+                    </div> -->
                     <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
                         <div class="row d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">    
                             <h4><strong>INCIDENCIAS A REVISAR:</strong></h4>
@@ -235,7 +232,7 @@
                             }  
 
                             foreach ($array_moldes as $molde) {
-                                $sql3 = "SELECT*FROM `comunicacion_jus_registro_datos` WHERE `id_com_jus`='$id_com_jus' AND `molde`='$molde'";
+                                $sql3 = "SELECT `fecha`, `turno` FROM `comunicacion_jus_registro_datos` WHERE `id_com_jus`='$id_com_jus' AND `molde`='$molde'";
                                 $consulta3 = mysqli_query($conexion, $sql3);
                                 while ($row = mysqli_fetch_array($consulta3)) {
                                     $fecha_molde=$row['fecha'];
@@ -247,13 +244,14 @@
                             <table class="table table-striped" >
                                 <thead>
                                     <tr>
-                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" colspan="3" scope="col">MOLDE: <?php echo $molde?> (<?php echo date("d/m/Y", strtotime($fecha_molde))?> - <?php echo $turno_molde?>)</th>
+                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" colspan="4" scope="col">MOLDE: <?php echo $molde?> (<?php echo date("d/m/Y", strtotime($fecha_molde))?> - <?php echo $turno_molde?>)</th>
                                     </tr>
                                 </thead>
                                 <thead>
                                     <tr>
                                         <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">Incidencia</th>
-                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">Comentario Incidencia</th>
+                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">Reparable en máquina</th>
+                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">ACCIÓN</th>
                                         <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">¿A revisar?</th>
                                     </tr>
                                 </thead>
@@ -273,6 +271,8 @@
                                     {
                                         $a_revisar_checked="";
                                     }
+                                    $no_conformidad=$row['no_conformidad'];
+
 
                         ?>
                                     <tr>
@@ -280,7 +280,10 @@
                                             <?php echo $row['no_conformidad']?>
                                         </td>
                                         <td style="border: 1px solid black; vertical-align: middle;" >
-                                            <?php echo $row['comentario_no_conformidad']?>
+                                            <?php echo $row['reparable_en_maquina']?>
+                                        </td> 
+                                        <td style="border: 1px solid black; vertical-align: middle;" >
+                                            <input type="text" form="form_datos" class="form-control" name="accion_<?php echo $row['num_conformidad']?>" id="accion_<?php echo $row['num_conformidad']?>" value="<?php echo $row['accion']?>" onkeydown="btn_guardar_rojo()">
                                         </td> 
                                         <td style="border: 1px solid black; vertical-align: middle;" >
                         <?php
@@ -360,13 +363,13 @@ echo '<br>contador= '.$contador.'<br>';
     }
 </script>
     <!-- Footer -->
-    <?php echo file_get_contents('http://'.$ip.'/D-WIDO/footer.php');?>
+    <?php echo file_get_contents('footer.php');?>
     <!-- Footer -->
 
 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="js/bootstrap.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script> -->
 
 </body>
 </html>

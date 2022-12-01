@@ -16,7 +16,7 @@
 
 <!-- Nav desde aqui -->
 <?php
-     $titulo_pagina= "";
+     $titulo_pagina= "Hoja de intervención";
      include("conexion.php");
     $sql="UPDATE tabla_navegador SET uso = '0'";
     $consulta = mysqli_query($conexion, $sql);

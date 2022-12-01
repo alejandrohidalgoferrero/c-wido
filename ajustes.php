@@ -47,75 +47,53 @@
             <!-- <div  class="col-4 mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1 text-dark ">
             </div> -->
 
-            <div  class="col-3 mx-auto mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1 text-dark border rounded" style="background-color:#E0F4F2;">
+            <div  class="col-3 mx-auto mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1 text-dark border border-dark rounded" style="background-color:#E0F4F2;">
                 <div align="center" class=" mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1 " >
                     <label><strong>Opciones:</strong></label>
                 </div>
                 
                 <div>
-                    <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                    <div class="text-left  align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
                         <form  class="text-center" style="font-style: italic; font-weight: bold;" action="ajustes usuario.php" method="POST" enctype="multipart/form-data">
                             <div >
-                            <input type="submit" name="submit" value="Ajustes usuario." class="btn btn-secondary align-middle btn-lg">
+                            <input type="submit" name="submit" value="Ajustes usuario." class="btn btn-secondary align-middle btn-lg btn-block">
                             </div>
                         </form>
                     </div>
                     <br>
-                    <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                    <div class="text-left  align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
                         <form  class="text-center" style="font-style: italic; font-weight: bold;" action="ajustes mantenimiento.php" method="POST" enctype="multipart/form-data">
                             <div >
-                            <input type="submit" name="submit" value="Ajustes kitting mantenimiento." class="btn btn-secondary align-middle btn-lg">
+                            <input type="submit" name="submit" value="Ajustes kitting mantenimiento." class="btn btn-secondary align-middle btn-lg btn-block">
                             </div>
                         </form>
                     </div>
                     <br>
-                    <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                    <div class="text-left  align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
                         <form  class="text-center" style="font-style: italic; font-weight: bold;" action="ajustes descarga tablas.php" method="POST" enctype="multipart/form-data">
                             <div >
-                            <input type="submit" name="submit" value="Descargar Tablas" class="btn btn-secondary align-middle btn-lg">
+                            <input type="submit" name="submit" value="Descargar Tablas" class="btn btn-secondary align-middle btn-lg btn-block">
                             </div>
                         </form>
                     </div>                        
                     <br>
-                    <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                    <!-- <div class="text-left  align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
                         <form  class="text-center" style="font-style: italic; font-weight: bold;" action="libro_relevos_fabricacion_menu.php" method="POST" enctype="multipart/form-data">
                             <div >
                             <input type="submit" name="submit" value="PRUEBA LIBRO DE RELEVOS" class="btn btn-secondary align-middle btn-lg">
                             </div>
                         </form>
-                    </div>         
-                    <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
+                    </div>          -->
+                    <!-- <div class="text-left  align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
                         <form  class="text-center" style="font-style: italic; font-weight: bold;" action="hoja_intervencion_menu.php" method="POST" enctype="multipart/form-data">
                             <div >
                             <input type="submit" name="submit" value="Prueba Hoja Intervencion" class="btn btn-secondary align-middle btn-lg">
                             </div>
                         </form>
-                    </div>         
+                    </div>          -->
                 </div>
             </div>
         </div> 
-        <!-- <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
-                        <form  class="text-center" style="font-style: italic; font-weight: bold;" action="ajustes actualizar piezas.php" method="POST" enctype="multipart/form-data">
-                            <div >
-                            <input type="submit" name="submit" value="Actualizar piezas (NO TOCAR)." class="btn btn-secondary align-middle btn-lg">
-                            </div>
-                        </form>
-                    </div>  -->
-                    <!-- <div class="text-left border rounded align-middle mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1" >
-                        <form  class="text-center" style="font-style: italic; font-weight: bold;" action="ajustes actualizar 2000.php" method="POST" enctype="multipart/form-data">
-                            <div >
-                            <input type="submit" name="submit" value="Actualizar 2000 (NO TOCAR)." class="btn btn-secondary align-middle btn-lg">
-                            <input type="text" name="dia" id="dia" value="">
-                            <input type="text" name="mes" id="mes" value="11">
-                            <input type="text" name="anio" id="anio" value="2020">
-
-                            </div>
-                        </form>
-                    </div>      -->
-
-    <br>
-    <br>
-    <br>
 
     <!-- Footer -->
     <?php echo file_get_contents('http://'.$ip.'/C-WIDO/footer.php');?>

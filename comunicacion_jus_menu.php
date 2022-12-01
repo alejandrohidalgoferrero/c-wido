@@ -13,6 +13,11 @@
 </head>
 
 <body style="background-color: #D8F5CA" class="text-muted">
+<style>
+.modal-lg {
+    max-width: 80% !important;
+}
+</style>
 
 <!-- Nav desde aqui -->
 <?php
@@ -101,10 +106,81 @@
 
 <!-- Auí introduciremos los contenidos que lleve la pagina -->
 
+<div class="container-fluid">
+    <div class="modal fade" id="dashboard_pasados" tabindex="-1" role="dialog" aria-labelledby="dashboard_pasados" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    TABLA DASHBOARD REALIZADOS:
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered " id="tabla_com_jus_menu" name="tabla_com_jus_menu">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="w-auto" style="vertical-align: middle" scope="col"></th>
+                                <th style="vertical-align: middle" scope="col">Semana</th>
+                                <th style="vertical-align: middle" scope="col">Fecha</th>
+                                <th style="vertical-align: middle" scope="col">Turno</th>
+                                <th style="vertical-align: middle" scope="col">JU Fabricación</th>
+                                <th style="vertical-align: middle" scope="col">JU Matricería</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <?php 
+                                    $fecha_limite_tabla=date("Y-m-d",strtotime($fecha_hoy."- 5 days"));
+                                    $sql = "SELECT * FROM `comunicacion_jus_registro_dias` WHERE `fecha` BETWEEN '$fecha_limite_tabla' AND '$fecha_hoy' ORDER BY `id` DESC ";
+                                    $consulta = mysqli_query($conexion, $sql);
+                                    while ($row = mysqli_fetch_array($consulta)) {          
+                                        switch (true) {
+                                            case $fecha_hoy==$row['fecha'] AND $turno_hoy==$row['turno']:
+                                                $tr_background="background-color:#FFF86E;";
+                                                break;
+                                            default:
+                                                $tr_background="";
+                                        }
+                                        switch (true) {
+                                            case $row['estado_com_jus']== 0:
+                                                $btn_ldr_background="btn-danger";
+                                                break;
+                                            default:
+                                                $btn_ldr_background="btn-success";
+                                        }
+
+                                    echo'
+                                        <tr style="'.$tr_background.'">
+                                            <td class="col-auto">
+                                                <form action="comunicacion_jus_generar_turno.php" method="POST"> 
+                                                    <button type="submit" class="btn '.$btn_ldr_background.'">Comunicación JUs</button>
+                                                    <input type="hidden" name="id_com_jus" id="id_com_jus" value="'.$row['id_com_jus'].'">
+                                                </form>
+                                            </td>
+                                            <td  style="vertical-align: middle">'.$row['semana'].'</td>
+                                            <td  style="vertical-align: middle">'.date("d-m-Y", strtotime($row['fecha'])).'</td>
+                                            <td  style="vertical-align: middle">'.$row['turno'].'</td>
+                                            <td  style="vertical-align: middle">'.$row['ju_fabricacion'].'</td>
+                                            <td  style="vertical-align: middle">'.$row['ju_matriceria'].'</td>
+                                        </tr>
+                                    ';
+                                    } 
+                                ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>             
 
 
-<div class="container-fluid  mt-2 mb-2 pt-1 pb-1">
+<div class="container-fluid  mt-2 mb-2 pt-1 pb-1">           
     <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1" >
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dashboard_pasados">  
+            TABLA DASHBOARD PASADOS
+        </button>
+    </div>   
+    <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1" >
+
         <div class="container-fluid justify-content-center mt-2 mb-2 mr-1 ml-1 pt-1 pb-1 pl-1 pr-1 border rounded text-dark text-center" style="background-color:#E4E4E4;">
 
             <table class="table table-striped table-bordered " id="tabla_com_jus_menu" name="tabla_com_jus_menu">
@@ -122,7 +198,7 @@
                 <tbody>
                         <?php 
                             $fecha_limite_tabla=date("Y-m-d",strtotime($fecha_hoy."- 5 days"));
-                            $sql = "SELECT * FROM `comunicacion_jus_registro_dias` WHERE `fecha`>'$fecha_limite_tabla' ORDER BY `id` DESC ";
+                            $sql = "SELECT * FROM `comunicacion_jus_registro_dias` WHERE `fecha` = '$fecha_hoy' ORDER BY `id` DESC ";
                             $consulta = mysqli_query($conexion, $sql);
                             while ($row = mysqli_fetch_array($consulta)) {          
                                 switch (true) {

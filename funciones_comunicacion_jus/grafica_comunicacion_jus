@@ -1,0 +1,11 @@
+<?php
+
+// $sql = "SELECT DISTINCT(`id_com_jus`) FROM `comunicacion_jus_registro_dias` ORDER BY `id_com_jus`DESC";
+// $consulta = mysqli_query($conexion2, $sql) or die('Impossible de se connecter au serveur MySQL');
+// while ($row = mysqli_fetch_array($consulta)) {
+//     $array_id_com_jus[]=$row['id_com_jus'];
+// }
+
+
+
+?>

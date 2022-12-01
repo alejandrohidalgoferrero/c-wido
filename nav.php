@@ -12,7 +12,7 @@ if($nombrecompleto== "" AND $titulo_pagina!="LOGIN")
     header('Location:index.php');
 }
 
-$link_nav = array("1"=>"Mantenimiento ", "2"=>"Libro de Relevos Fabricación", "3"=>"App elementos elevación", "4"=>"FACTORIA 4.0 ",  "5"=>"Cambio molde", "6"=>"FOS", "7"=>"HxH inyectoras","8"=>"HORNOS ","9"=>"Check arranque parada","10"=>"Calidad");
+$link_nav = array("1"=>"Mantenimiento ", "2"=>"Libro de Relevos Fabricación", "3"=>"App elementos elevación", "4"=>"FACTORIA 4.0 ",  "5"=>"Cambio molde", "6"=>"FOS", "7"=>"HxH inyectoras","8"=>"HORNOS ","9"=>"Check arranque parada","10"=>"Calidad","11"=>"Hoja de intervención");
 $sublink_nav =array("1"=>"Sala 3D","2"=>"Comunicación JUs");
 
 
@@ -52,7 +52,6 @@ else
     $bloqueo_inicio="";
 }
 
-$ip="10.217.144.35";
 
 include("ipserver.php");
 
@@ -62,7 +61,7 @@ echo'
 
 
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-    <a class="navbar-brand active" href="http://'.$ipserver.'/C-WIDO/"> C-WIDO</a>
+    <a class="navbar-brand active" href="index.php"> C-WIDO</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>';
@@ -132,6 +131,11 @@ echo'
             ';
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
+                <a class="nav-link '.$color_texto[11].' '.$bloqueo_inicio.'"   href="hoja_intervencion_menu.php">Hoja de intervención</a>
+            </li>
+            ';
+            echo'
+            <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
                 <div class="dropdown" >
                     <a class="nav-link '.$color_texto[10].' dropdown-toggle '.$bloqueo_inicio.'"    data-toggle="dropdown" href="">Calidad</a>
                     <ul class="dropdown-menu">
@@ -141,6 +145,7 @@ echo'
                 </div>
             </li>
             ';
+
     echo'    
         </ul>  
     </div>';
