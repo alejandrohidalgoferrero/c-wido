@@ -87,7 +87,7 @@
                 <th class="align-middle" scope="col">INDEX<br></td>
                 <th class="align-middle" scope="col">MAGNESIO<br></td>
                 <th class="align-middle" scope="col">CARGA CUCHARA EN INYECTORA Nº<br></td>
-                <th class="align-middle" scope="col">INCIDENCIAS / OBSERVACIONES<br></td>
+                <th class="align-middle" scope="col">OBSERVACIONES / CUADRO DE CONTOL<br></td>
             </tr>
         </thead>
         <tbody>
