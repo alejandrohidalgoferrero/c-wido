@@ -200,7 +200,7 @@ table.table-bordered > tbody > tr > td{
                                     if($row['nombre_imagen']!="")
                                     {
                                     echo'
-                                    <img src="app_medios_elevacion_archivos/'.$row['nombre_imagen'].'.jpg" class="img-fluid" alt="Falta imagen '.$row['nombre_imagen'].'">';
+                                    <img src="'.$row['nombre_imagen'].'.jpg" class="img-fluid" alt="Falta imagen '.$row['nombre_imagen'].'">';
                                     }
                                 echo'
                                 </td>';
