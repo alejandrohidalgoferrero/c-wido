@@ -61,7 +61,56 @@
     </div>
     <br>
     <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1" >
-        <table class="table table-sm table-bordered table-striped">
+
+        <div class="d-flex justify-content-around mr-1 ml-1 mt-1 mb-1">                
+            <div class="col-auto d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center border border-dark rounded">
+                <div class="d-inline-block mr-1 ml-1">
+                    <span><strong>Filtro fecha:</strong></span>
+                </div>
+                <div class="d-inline-block mr-1 ml-1">
+                    <span>Inicio:</span>
+                </div>
+                <div class="d-inline-block mr-1 ml-1">
+                    <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control">
+                </div>
+                <div class="d-inline-block mr-1 ml-1">
+                    <span>Fin:</span>
+                </div>
+                <div class="d-inline-block mr-1 ml-1">
+                    <input type="date" name="fecha_fin" id="fecha_fin" class="form-control">
+                </div>
+                <div class="d-inline-block mr-1 ml-1">
+                    <button type="button" id="btn_filtrar" name="btn_filtrar" class="btn btn-secondary"  onclick="function_filtro_fecha()">Filtrar</button>
+                </div>                        
+            </div>  
+            <div class="col-auto d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center border border-dark rounded">
+                <div class="d-inline-block mr-1 ml-1">
+                    <span><strong>Filtro Tipo Check:</strong></span>
+                </div>
+                <div class="d-inline-block mr-1 ml-1">
+                    <?php
+                        $array_tipo_check[""]="";
+                        $sql = "SELECT DISTINCT `tipo_check` FROM `checks_mto_seguridad_registro` WHERE `tipo_check` IS NOT NULL";
+                        $consulta = mysqli_query($conexion, $sql);
+                        while ($row = mysqli_fetch_array($consulta)) {
+                            $array_tipo_check[$row['tipo_check']]=$row['tipo_check'];
+                        }
+                    ?> 
+                    <select class="form-control" name="filtro_tipo_check" id="filtro_tipo_check"  onchange="function_filtro_tipo_check()">
+                    <?php
+                        $default ="";
+                        $states =$array_tipo_check;
+                        foreach($states as $key=>$val) {
+                            echo ($key == $default) ? "<option selected=\"selected\" value=\"$key\">$key</option>":"<option value=\"$key\">$key</option>";
+                        }
+                    ?>
+                    </select>
+                </div>
+            </div>  
+        </div>
+    </div>
+    <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1" >
+        <table class="table table-sm table-bordered table-striped" id="tabla_checks_seguridad" name="tabla_checks_seguridad">
             <thead class="thead-dark">
                 <tr>
                     <th class="text-center" style="vertical-align: middle" scope="col"></th>
@@ -86,24 +135,16 @@
                             <input type="hidden" name="tipo_generacion" id="tipo_generacion" value="modificar">
                             <input type="hidden" name="id_check" id="id_check" value="<?php echo $row['id_check']?>">
                             <input type="hidden" name="tipo_check" id="tipo_check" value="<?php echo $row['tipo_check']?>">
-
                         </form>
                     </td>
-                    <td class="text-center" style="vertical-align: middle">
-                        <?php 
-                        //echo date("d-m-Y", $row['fecha'])
-                        echo $row['fecha'];
-                        ?>
-                    </td>
+                    <td class="text-center" style="vertical-align: middle"><?php echo date("d-m-Y", strtotime($row['fecha']));?></td>
                     <td class="text-center" style="vertical-align: middle">
                         <?php echo $row['turno']?>
                     </td>
                     <td class="text-center" style="vertical-align: middle">
                         <?php echo $row['usuario_modificacion']?>
                     </td>
-                    <td class="text-center" style="vertical-align: middle">
-                        <?php echo $row['tipo_check']?>
-                    </td>
+                    <td class="text-center" style="vertical-align: middle"><?php echo $row['tipo_check']?></td>
                     <td class="text-center" style="vertical-align: middle">
                         <?php echo $row['elemento']?>
                     </td>
@@ -117,8 +158,87 @@
             </tbody>
         </table>
     </div>
-
 </div>
+<script>
+    function function_filtro_tipo_check() {
+        // Declare variables
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("filtro_tipo_check");
+        filter = input.value;
+        table = document.getElementById("tabla_checks_seguridad");
+        tr = table.getElementsByTagName("tr");
+        // Loop through all table rows, and hide those who don't match the search query
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[4];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+
+                if (txtValue.indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+    var valor_fecha=1;
+
+    function function_filtro_fecha() {
+        btn_filtrar = document.getElementById("btn_filtrar");
+
+        if(valor_fecha==1)
+        {
+
+            var input_startDate, input_stopDate, tr, i;
+            input_startDate =  new Date(document.getElementById("fecha_inicio").value);
+            input_stopDate =  new Date(document.getElementById("fecha_fin").value);
+
+            console.log("input_startDate= "+input_startDate);        
+            console.log("input_stopDate= "+input_stopDate);        
+
+            table = document.getElementById("tabla_checks_seguridad");
+            tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+
+                let td = tr[i].getElementsByTagName("td");
+
+                if (!td || !td[2]) continue;
+
+                let date = td[1].textContent[6]+td[1].textContent[7]+td[1].textContent[8]+td[1].textContent[9]+"-"+td[1].textContent[3]+td[1].textContent[4]+"-"+td[1].textContent[0]+td[1].textContent[1];
+                console.log("date= "+date);        
+
+                let td_date = new Date(date);
+                console.log("td_date= "+td_date);        
+
+                if (td_date) {
+                    if (td_date >= input_startDate && td_date <= input_stopDate) {
+                        tr[i].style.display ="";
+                    } else {
+                        tr[i].style.display = 'none';
+                    }
+                }
+            }
+            btn_filtrar.innerText="Borrar filtro";
+            valor_fecha=0;
+        }
+        else
+        {
+            table = document.getElementById("tabla_checks_seguridad");
+            tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+                tr[i].style.display ="";
+            }
+            
+            btn_filtrar.innerText="Filtrar";
+
+            valor_fecha=1;
+        }
+
+    }
+</script>     
 
     <!-- Footer -->
     <?php echo file_get_contents('http://'.$ip.'/D-WIDO/footer.php');?>
