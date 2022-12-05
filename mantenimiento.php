@@ -72,6 +72,13 @@
             </form>
         </div>
     </div>
+    <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1" >
+        <div class="col-4 justify-content-center mr-1 ml-1 mt-1 mb-1" >
+            <form action="checks_mto_seguridad_menu.php"> 
+                <input style="vertical-align: middle;" type="submit" value="Checks Seguridad" class=" btn btn-primary  btn-lg btn-block mt-1 mb-1 ml-1 mr-1 pt-1 pb-1 pl-1 pr-1">
+            </form>
+        </div>
+    </div>
 </div>
 
 
