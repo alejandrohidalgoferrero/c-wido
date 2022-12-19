@@ -131,7 +131,7 @@
                 <tr>
                     <td class="w-auto text-center">
                         <form action="checks_mto_seguridad_generacion.php"  method="POST"> 
-                            <button type="submit" name="" id="" class="btn btn-info">VER <?php echo $row['id_check']?></button>
+                            <button type="submit" name="" id="" class="btn btn-info">VER</button>
                             <input type="hidden" name="tipo_generacion" id="tipo_generacion" value="modificar">
                             <input type="hidden" name="id_check" id="id_check" value="<?php echo $row['id_check']?>">
                             <input type="hidden" name="tipo_check" id="tipo_check" value="<?php echo $row['tipo_check']?>">

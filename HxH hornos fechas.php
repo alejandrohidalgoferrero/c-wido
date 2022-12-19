@@ -65,9 +65,8 @@
 
 
 
-        <div class="align-items-center mr-auto ml-auto mt-1 mb-3 pt-2 pb-2 pl-2 pr-2 border border-dark" style="width: 100%; background-color:#ECECEC" >            
-
-        <table style="text-align: center; font-size:11px" align="center" border="1"class="table table-striped table-sm align-middle w-auto">
+<div class="align-items-center mr-auto ml-auto mt-1 mb-3 pt-2 pb-2 pl-2 pr-2 border border-dark" style="width: 100%; background-color:#ECECEC" >            
+    <table style="text-align: center; font-size:11px" align="center" border="1"class="table table-striped table-sm align-middle w-auto">
         <thead class="thead-dark">
             <tr>
                 <th class="align-middle" scope="col">Turno<br></td>
@@ -87,26 +86,18 @@
                 <th class="align-middle" scope="col">INDEX<br></td>
                 <th class="align-middle" scope="col">MAGNESIO<br></td>
                 <th class="align-middle" scope="col">CARGA CUCHARA EN INYECTORA Nº<br></td>
-                <th class="align-middle" scope="col">OBSERVACIONES / CUADRO DE CONTOL<br></td>
+                <th class="align-middle" scope="col">OBSERVACIONES / CUADRO DE CONTROL<br></td>
             </tr>
         </thead>
         <tbody>
             <tr>
             <?php
 
-
             $contador=1;
             $consulta = "SELECT * FROM  `hxh_hornos_registro` WHERE `fecha`='$fecha' AND `horno`='$hor'";
             $resultado = mysqli_query($conexion, $consulta ) or die ( "Algo ha ido mal en la consulta a la base de datos:".mysqli_error($conexion));                             
             while ($row = mysqli_fetch_array($resultado)) {
-
-
-
-
-
-        ?>    
-
-                <?php echo '
+                echo '
                 <td class="col-xs-2" style="vertical-align: middle;">
                     '. $row['turno'].'
                 </td>
@@ -117,7 +108,6 @@
                     <div><input class="w-100" type="text" maxlength="7" name="operario_'.$contador.'" id="operario_'.$contador.'"  value="'. $row['operario'].'"> </div>        
                 </td>
                 <td style="vertical-align: middle;">';
-
 
                 $checked="";
                 if ($row['check_limpieza']!="1") {
@@ -190,23 +180,14 @@
                 <td style="vertical-align: middle;">
                     <div><textarea class="form-control" name="incidencias_'.$contador.'" id="incidencias_'.$contador.'ta_25" rows="1" cols="50">'. $row['incidencias'].'</textarea></div>
                 </td>
-     
-         
-
                ' ;?>
-
-
-
-        
             </tr>
             <?php
             $contador++;
                 }
         ?>
         </tbody>
-            </table>    
-
-
+    </table>    
 </div>
 
 

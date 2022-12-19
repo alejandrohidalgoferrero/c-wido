@@ -11,6 +11,7 @@
      <link rel="stylesheet" href="js/icofont/icofont.min.css">
 
      <script src="js/jquery.min.js"></script>
+     <script src="js/plotly.min.js"></script>
 
           
 </head>
@@ -111,115 +112,15 @@
     <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1" >
         <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
             <div class="container-fluid justify-content-center mt-2 mb-2 mr-1 ml-1 pt-1 pb-1 pl-1 pr-1 border border-dark rounded text-dark justify-content-center text-center" style="background-color:#E4E4E4;">
+                <div class="row align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center ">    
+                    <h4><strong>GRÁFICA INCIDENCIAS REVISADAS:</strong></h4>
+                </div>
+                <div class="row justify-content-center mr-1 ml-1 mt-1 mb-1 border border-dark" id="div_grafica">        
+                    <?php include('funciones_comunicacion_jus/comunicacion_jus_grafica.php');?>
+                </div>
                 <div class="row d-flex  mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">                    
-                    <!-- <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
-                        <div class="row align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center ">    
-                            <h4><strong>INCIDENCIAS REVISADAS:</strong></h4>
-                        </div>
-                        <?php
-                            $sql2 = "SELECT `id` FROM `comunicacion_jus_registro_dias` WHERE `id_com_jus`='$id_com_jus'";
-                            $consulta2 = mysqli_query($conexion, $sql2);
-                            while ($row = mysqli_fetch_array($consulta2)) {
-                                $id_suport=$row['id'];
-                            }  
-                            $id_suport--;
-
-                            $sql2 = "SELECT `id_com_jus` FROM `comunicacion_jus_registro_dias` WHERE `id`='$id_suport'";
-                            $consulta2 = mysqli_query($conexion, $sql2);
-                            while ($row = mysqli_fetch_array($consulta2)) {
-                                $id_com_jus_anterior=$row['id_com_jus'];
-                            }  
-                            $sql2 = "SELECT DISTINCT(`molde`) FROM `comunicacion_jus_registro_datos` WHERE `id_com_jus`='$id_com_jus_anterior' AND `a_revisar`='1' ";
-                            $consulta2 = mysqli_query($conexion, $sql2);
-                            while ($row = mysqli_fetch_array($consulta2)) {
-                                $array_moldes_anterior[]=$row['molde'];
-                            }  
-                            foreach ($array_moldes_anterior as $molde) {
-                                $sql3 = "SELECT*FROM `comunicacion_jus_registro_datos` WHERE `id_com_jus`='$id_com_jus_anterior' AND `molde`='$molde'";
-                                $consulta3 = mysqli_query($conexion, $sql3);
-                                while ($row = mysqli_fetch_array($consulta3)) {
-                                    $fecha_molde=$row['fecha'];
-                                    $turno_molde=$row['turno'];
-                                }
-                        ?>
-                        <div class="row d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">        
-                            <table class="table table-striped" >
-                                <thead>
-                                    <tr>
-                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" colspan="3" scope="col">MOLDE: <?php echo $molde?> (<?php echo date("d/m/Y", strtotime($fecha_molde))?> - <?php echo $turno_molde?>)</th>
-                                    </tr>
-                                </thead>
-                                <thead>
-                                    <tr>
-                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">Incidencia</th>
-                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">Comentario Incidencia</th>
-                                        <th class="text-light bg-dark" style="border: 1px solid black; vertical-align: middle;" scope="col">REVISADO</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                        <?php
-                                $sql3 = "SELECT*FROM `comunicacion_jus_registro_datos` WHERE `id_com_jus`='$id_com_jus_anterior' AND `molde`='$molde' AND `a_revisar`='1' ";
-                                $consulta3 = mysqli_query($conexion, $sql3);
-                                while ($row = mysqli_fetch_array($consulta3)) {
-                                    $no_conformidad=$row['no_conformidad'];
-
-                                    for ($i = 1; $i <= 20; $i++) {
-                                        $nombre_columna_no_conformidad='no_conformidad_'.$i;
-                                        $nombre_columna_estado_no_conformidad='estado_no_conformidad_'.$i;
-
-                                        $estado_no_conformidad_revisada='0';
-                                        $sql4 = "SELECT `$nombre_columna_estado_no_conformidad` FROM `comunicacion_sala_3d` WHERE `fecha`='$fecha_molde' AND  `turno`='$turno_molde' AND `molde`='$molde' AND `$nombre_columna_no_conformidad`='$no_conformidad'";
-                                        $consulta4 = mysqli_query($conexion, $sql4);
-                                        while ($row = mysqli_fetch_array($consulta4)) {
-                                            $a=$row[$nombre_columna_estado_no_conformidad];
-                                            if($a!='1')
-                                            {
-
-                                            }
-                                            else
-                                            {
-                                                $estado_no_conformidad_revisada='1';
-                                                break;
-                                            }
-                                        }
-                                    }
-                        ?>
-                                    <tr>
-                                        <td style="border: 1px solid black; vertical-align: middle;" >
-                                            <?php echo $no_conformidad?>
-                                        </td>
-                                        <td style="border: 1px solid black; vertical-align: middle;" >
-                                            <?php echo $row['comentario_no_conformidad']?>
-                                        </td> 
-                                        <td style="border: 1px solid black; vertical-align: middle;" >
-                                            <?php
-                                                if($estado_no_conformidad_revisada=='1')
-                                                {
-                                                    echo '<i class="icofont-tick-mark text-success">REVISADO</i>';
-                                                }
-                                                else
-                                                {
-                                                    echo '<i class="icofont-close-line text-danger">PENDIENTE</i>';
-                                                }
-                                            ?>
-
-                                        </td> 
-                                    </tr>
-                        <?php
-                                }
-                        ?>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <?php
-                            }
-
-                        ?>
-                    </div> -->
                     <div class="col justify-content-center mr-1 ml-1 mt-1 mb-1" >
-                        <div class="row d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1 justify-content-center text-center">    
+                        <div class="row d-flex align-items-center mt-1 mb-1 mr-1 ml-1 pt-1 pb-1 pr-1 pl-1">    
                             <h4><strong>INCIDENCIAS A REVISAR:</strong></h4>
                         </div>
 
