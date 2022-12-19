@@ -20,14 +20,14 @@
      $titulo_pagina= "LOGIN";
      include("conexion.php");
      include("ipserver.php");
-    $sql="UPDATE tabla_navegador SET uso = '0'";
-    $consulta = mysqli_query($conexion, $sql);
+    // $sql="UPDATE tabla_navegador SET uso = '0'";
+    // $consulta = mysqli_query($conexion, $sql);
 
-     $sql="UPDATE tabla_navegador SET uso = '1' WHERE tabla_navegador.titulo = '$titulo_pagina'";
-     $consulta = mysqli_query($conexion, $sql);
+    //  $sql="UPDATE tabla_navegador SET uso = '1' WHERE tabla_navegador.titulo = '$titulo_pagina'";
+    //  $consulta = mysqli_query($conexion, $sql);
 
-     $sql="UPDATE tabla_navegador SET `usuario` = '' WHERE `titulo` ='usuario'";
-     $consulta=mysqli_query($conexion, $sql);
+    //  $sql="UPDATE tabla_navegador SET `usuario` = '' WHERE `titulo` ='usuario'";
+    //  $consulta=mysqli_query($conexion, $sql);
      ?>
      
      <title><?php echo $titulo_pagina?></title>

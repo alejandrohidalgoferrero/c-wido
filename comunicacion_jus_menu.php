@@ -128,7 +128,7 @@
                         </thead>
                         <tbody>
                                 <?php 
-                                    $fecha_limite_tabla=date("Y-m-d",strtotime($fecha_hoy."- 5 days"));
+                                    $fecha_limite_tabla=date("Y-m-d",strtotime($fecha_hoy."- 25 days"));
                                     $sql = "SELECT * FROM `comunicacion_jus_registro_dias` WHERE `fecha` BETWEEN '$fecha_limite_tabla' AND '$fecha_hoy' ORDER BY `id` DESC ";
                                     $consulta = mysqli_query($conexion, $sql);
                                     while ($row = mysqli_fetch_array($consulta)) {          
