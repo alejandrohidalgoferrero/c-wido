@@ -1,6 +1,5 @@
 <?php
 // $servername="localhost";
-
 $servername="10.217.144.35";
 
 $database = "c-wido";

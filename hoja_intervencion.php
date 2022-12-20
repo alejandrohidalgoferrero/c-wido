@@ -60,6 +60,7 @@
         $nombre_img_4=$row['img_4'];
         $nombre_img_5=$row['img_5'];
         $nombre_img_6=$row['img_6'];
+        $realizado_comentario_matriceria=$row['realizado_comentario_matriceria'];
 
     }
 
@@ -70,6 +71,9 @@
     if(is_null($nombre_img_5)){$nombre_img_5='imagenes/imagen_hoja_intervencion_'.$modelo.'_f500.jpg';}
     if(is_null($nombre_img_6)){$nombre_img_6='imagenes/imagen_hoja_intervencion_'.$modelo.'_f600.jpg';}
 
+    if($realizado_comentario_matriceria==1){$checked_realizado_comentario_matriceria='checked';}else{$checked_realizado_comentario_matriceria='';}
+
+    
     $sql = "SELECT*FROM `hoja_intervencion_datos` WHERE `id_hoja_intervencion`='$id_hoja_intervencion' AND `id`='1'";
     $consulta = mysqli_query($conexion, $sql);
     while ($row = mysqli_fetch_array($consulta)) {
@@ -377,7 +381,19 @@
                     </div>
                     <div class="mt-1 mb-1 pt-1 pb-1 border border-dark rounded" >
                         <div class="d-flex flex-row justify-content-around mr-1 ml-1 mt-1 mb-1 pt-1 pb-1 pl-1 pr-1  " >
-                            <strong>COMENTARIOS MATRICERÍA</strong>       
+                            <div class="col-auto">
+                                <strong>COMENTARIOS MATRICERÍA</strong>     
+                            </div>
+                            <div class="col-auto">
+                                <div class="input-group border border-dark rounded">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <label class="my-auto"><strong>Realizado:</strong></label>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" readonly  <?php echo $checked_realizado_comentario_matriceria?>   name="realizado_comentario_matriceria" id="realizado_comentario_matriceria"  class="form-control " value="1">
+                                </div>      
+                            </div>
                         </div>
                         <div class="d-flex flex-row justify-content-around mr-1 ml-1 mt-1 mb-1 pt-1 pb-1 pl-1 pr-1  " >
                             <textarea name="comentarios_matriceria" form="form_datos" id="comentarios_matriceria" onkeyup="btn_guardar_rojo()" placeholder="Comentarios..." class="form-control" rows="2" maxlength="2500"><?php echo $comentarios_matriceria?></textarea>
