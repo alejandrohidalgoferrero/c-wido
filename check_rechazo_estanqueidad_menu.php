@@ -105,7 +105,7 @@
                                     <tr>
                                         <td>
                                             <form action="check_rechazo_estanqueidad_generacion.php" method="POST"> 
-                                                <button type="submit" class="btn btn-info">Ver '.$orden.'</button>
+                                                <button type="submit" class="btn btn-info">Ver</button>
                                                 <input type="hidden" name="id_check_rechazo_estanqueidad" id="id_check_rechazo_estanqueidad" value="'.$row['id_check_rechazo_estanqueidad'].'">
                                                 <input type="hidden" id="tipo_generacion" name="tipo_generacion" value="modificar"> 
                                             </form>
