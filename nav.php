@@ -12,7 +12,7 @@ if($nombrecompleto== "" AND $titulo_pagina!="LOGIN")
     header('Location:index.php');
 }
 
-$link_nav = array("1"=>"Mantenimiento ", "2"=>"Libro de Relevos Fabricación", "3"=>"App elementos elevación", "4"=>"FACTORIA 4.0 ",  "5"=>"Cambio molde", "6"=>"FOS", "7"=>"HxH inyectoras","8"=>"HORNOS ","9"=>"Check arranque parada","10"=>"Calidad","11"=>"Hoja de intervención");
+$link_nav = array("1"=>"Mantenimiento ", "2"=>"Libro de Relevos Fabricación", "3"=>"App elementos elevación", "4"=>"FACTORIA 4.0 ",  "5"=>"Cambio molde", "6"=>"FOS", "7"=>"HxH inyectoras","8"=>"HORNOS ","9"=>"Check arranque parada","10"=>"Calidad","11"=>"Hoja de intervención","12"=>"Check rechazo estanqueidad");
 $sublink_nav =array("1"=>"Sala 3D","2"=>"Comunicación JUs");
 
 
@@ -127,6 +127,11 @@ echo'
             echo'
             <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
                 <a class="nav-link '.$color_texto[9].' '.$bloqueo_inicio.'"   href="checks arranque parada.php">Checks arranque parada</a>
+            </li>
+            ';
+            echo'
+            <li class="nav-item ml-1 mr-1 mt-1 mb-1 pl-1 pr-1 pt-1 pb-1">
+                <a class="nav-link '.$color_texto[12].' '.$bloqueo_inicio.'"   href="check_rechazo_estanqueidad_menu.php">Check rechazo estanqueidad</a>
             </li>
             ';
             echo'
